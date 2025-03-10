@@ -1,19 +1,24 @@
 /* Admin Dashboard Styles */
 :root {
-    --primary-color: #056d6c;
-    --secondary-color: #008b8b;
-    --light-color: #f5f5f5;
-    --dark-color: #333333;
-    --gray-color: #eeeeee;
-    --box-shadow: 0px 0px 50px 0px rgba(2, 54, 54, 0.12);
-    --border-radius: 12px;
-    --sidebar-width: 260px;
-    --header-height: 70px;
-    --success-color: #28a745;
-    --danger-color: #dc3545;
-    --warning-color: #ffc107;
-    --info-color: #17a2b8;
-  }
+  --primary-color: #056d6c;
+  --secondary-color: #008b8b;
+  --light-color: #f5f5f5;
+  --dark-color: #333333;
+  --gray-color: #eeeeee;
+  --box-shadow: 0px 0px 50px 0px rgba(2, 54, 54, 0.12);
+  --border-radius: 12px;
+  --sidebar-width: 260px;
+  --header-height: 70px;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --body-bg: #f5f8fe;
+  --card-bg: #ffffff;
+  --text-primary: #495057;
+  --text-secondary: #6c757d;
+  --sidebar-collapsed-width: 70px;
+}
   
   * {
     margin: 0;
@@ -25,7 +30,7 @@
     font-family: "Manrope", sans-serif;
     line-height: 1.6;
     color: var(--dark-color);
-    background-color: #f9fafb;
+    background-color: var(--body-bg);
   }
   
   a {
@@ -1461,39 +1466,13 @@ input[type="email"]:focus {
     width: 100%;
   }
 }
-
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /* Base styles */
-:root {
-  --secondary-color: #6c757d;
-  --success-color: #28a745;
-  --danger-color: #dc3545;
-  --warning-color: #ffc107;
-  --info-color: #17a2b8;
-  --light-color: #f8f9fa;
-  --dark-color: #343a40;
-  --body-bg: #f5f8fe;
-  --card-bg: #ffffff;
-  --border-color: #e9ecef;
-  --text-primary: #495057;
-  --text-secondary: #6c757d;
-  --font-family: 'Manrope', sans-serif;
-  --sidebar-width: 260px;
-  --sidebar-collapsed-width: 70px;
-  --header-height: 70px;
-}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: var(--font-family);
-  background-color: var(--body-bg);
-  color: var(--text-primary);
-  line-height: 1.5;
-}
+
+
+
 
 /* Dashboard Container */
 .dashboard-container {
@@ -2133,9 +2112,7 @@ body {
   margin-right: 8px;
 }
 
-.btn-primary:hover {
-  background-color: var(--primary-dark);
-}
+
 
 /* Modal Styles */
 .modal {
