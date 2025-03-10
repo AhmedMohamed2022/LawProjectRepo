@@ -1,0 +1,52 @@
+/* Styling for no laws message */
+.no-laws-message {
+    text-align: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    grid-column: 1 / -1;
+}
+
+.no-laws-message i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.no-laws-message h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.no-laws-message p {
+    color: #666;
+}
+
+/* Styling for tags in modal */
+.law-tags-section {
+    margin-top: 20px;
+}
+
+.law-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.law-tag {
+    background-color: #f0f0f0;
+    color: var(--primary-color);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* Law content text styling */
+.law-content-text {
+    line-height: 1.7;
+    margin-top: 10px;
+    white-space: pre-line; /* Preserves line breaks */
+}

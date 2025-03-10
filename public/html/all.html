@@ -1,0 +1,843 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal·AI - Artificial Intelligence for Legal Cases</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-left">
+                <div class="logo-container">
+                    <img src="./assets/logos/legal-ai-logo.svg" alt="Logo" class="logo-small">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="./index.html" class="active btn">Legal • AI</a></li>
+                    <li><a href="#">Possibilities</a></li>
+                    <li><a href="#">For You</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <select class="language-selector">
+                    <option value="en">Eng</option>
+                    <option value="ar">ع</option>
+                </select>
+                <a href="./login.html" class="btn btn-primary login">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <!-- <h1 class="main-heading">
+                Legal<span class="dot">•</span>AI
+            </h1> -->
+            <div class="animated-background"></div>
+            <img src="./assets/logos/title-logo.svg" alt="">
+            <p class="tagline">Use the power of artificial intelligence to analyze case law quickly and accurately</p>
+            <a class="btn btn-primary try" href="./lawsPage.html">Try it for free</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>Intelligent search</h3>
+                    </div>
+                    <div class="feature-content">
+                        <div class="featue-description">
+                            <p>Find relevant legal information and resources</p>
+                        </div>
+                        <div class="feature-image">
+                            <img src="./assets/icons/features-1.png" alt="Intelligent search">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>Predictive Analytics</h3>
+                    </div>
+                    <div class="feature-content">
+                        <div class="featue-description">
+                            <p>Predict case outcomes based on historical data</p>
+                        </div>
+                        <div class="feature-image">
+                            <img src="./assets/icons/features-2.png" alt="Predictive Analytics">
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <h3>Document automation</h3>
+                    </div>
+                    <div class="feature-content">
+                        <div class="featue-description">
+                            <p>Create legal documents with an AI assistant</p>
+                        </div>
+                        <div class="feature-image">
+                            <img src="./assets/icons/features-3.png" alt="Document automation">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-heading">How does this work</h2>
+            <div class="stages">
+                <div class="stage">
+                    <div class="stage-number">STAGE 1</div>
+                    <div class="stage-icon">
+                        <img src="./assets/icons/hiw-step1.png" alt="Stage 1">
+                    </div>
+                    <p class="stage-description">Upload or enter your case details</p>
+                </div>
+
+                <div class="stage-connector"><i class="fas fa-arrow-right"></i></div>
+
+                <div class="stage">
+                    <div class="stage-number">STAGE 2</div>
+                    <div class="stage-icon">
+                        <img src="./assets/icons/hiw-step2.png" alt="Stage 2">
+                    </div>
+                    <p class="stage-description">AI algorithm analyzes thousands of similar case decisions</p>
+                </div>
+
+                <div class="stage-connector"><i class="fas fa-arrow-right"></i></div>
+
+                <div class="stage">
+                    <div class="stage-number">STAGE 3</div>
+                    <div class="stage-icon">
+                        <img src="./assets/icons/hiw-step3.png" alt="Stage 3">
+                    </div>
+                    <p class="stage-description">Get detailed analysis and recommendations</p>
+                </div>
+
+                <div class="stage-connector"><i class="fas fa-arrow-right"></i></div>
+
+                <div class="stage">
+                    <div class="stage-number">STAGE 4</div>
+                    <div class="stage-icon">
+                        <img src="./assets/icons/hiw-step4.png" alt="Stage 4">
+                    </div>
+                    <p class="stage-description">Use insights to prepare your legal strategy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trial Section -->
+    <section class="trial">
+        <div class="container">
+            <h2 class="section-heading">Free 14-day trial available</h2>
+            <button class="btn btn-primary">Start your free trial</button>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <h2 class="section-heading">User Reviews</h2>
+            <div class="reviews-navigation">
+                <button class="review-nav prev"><i class="fas fa-arrow-left"></i></button>
+                <button class="review-nav next"><i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="review-cards">
+                <div class="review-card">
+                    <p class="review-text">— LegalAI has significantly accelerated our work with precedents. Now we
+                        spend 40% less time researching cases</p>
+                    <div class="reviewer">
+                        <img src="https://via.placeholder.com/50" alt="Reviewer" class="reviewer-image">
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">Aisha Rahman</div>
+                            <div class="reviewer-title">Legal Counsel</div>
+                        </div>
+                        <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">— LegalAI has helped us significantly improve the quality of our research. We
+                        now conduct analytics 45% faster</p>
+                    <div class="reviewer">
+                        <img src="https://via.placeholder.com/50" alt="Reviewer" class="reviewer-image">
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">Maria Kuznetsova</div>
+                            <div class="reviewer-title">Legal Analyst</div>
+                        </div>
+                        <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-heading">Frequently asked questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How to start using LegalAI?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sign up for an account, complete your profile, and you can start using our services
+                            immediately.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I change my tariff?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can upgrade or downgrade your subscription at any time through your account
+                            settings.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is there a trial period?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer a 14-day free trial for all new users to explore our platform.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept all major credit cards, PayPal, and bank transfers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-heading">Contacts</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>Support/Sales/support:</p>
+                    <p class="phone">+7-(701)-218-40-92</p>
+                    <p class="phone">+7-(708)-511-54-39</p>
+                    <p class="email">info@legalai.kz</p>
+                    <hr>
+                    <p class="developer">ITbyDesign</p>
+                    <p class="address">Astana, Republic of Kazakhstan, Turan str. 37, Apt. 8, Pin: 10110</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <input type="text" placeholder="Enter your name" class="form-control">
+                    <input type="tel" placeholder="Enter your phone number" class="form-control">
+                    <textarea placeholder="Message" class="form-control"></textarea>
+                    <button class="btn btn-primary">Send <i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="payment-methods">
+                <span class="payment-icon"><i class="fab fa-cc-visa"></i> VISA</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Agreement on the protection of personal data</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+<!-- lawsPage.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laws Page</title>
+    <link rel="stylesheet" href="./lawPageStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-left">
+                    <div class="logo-container">
+                        <img src="./assets/logos/legal-ai-logo.svg" alt="Logo" class="logo-small">
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="./index.html" class="active btn">Legal • AI</a></li>
+                        <li><a href="#">Possibilities</a></li>
+                        <li><a href="#">For You</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <select class="language-selector">
+                        <option value="en">Eng</option>
+                        <option value="ar">ع</option>
+                    </select>
+                    <a href="./login.html" class="btn btn-primary login">Login</a>
+                </div>
+            </div>
+        </nav>
+    
+        <!-- Law Categories Section - Add this after the Features Section -->
+        <section class="law-categories">
+            <div class="container">
+                <h2 class="section-heading">Browse Laws by Category</h2>
+                <p class="section-description">Our AI-powered platform organizes legal documents into intuitive categories
+                    for
+                    easy access and research</p>
+    
+                <div class="category-filters">
+                    <button class="category-filter active" data-category="all">All Laws</button>
+                    <button class="category-filter" data-category="constitutional">Constitutional</button>
+                    <button class="category-filter" data-category="civil">Civil</button>
+                    <button class="category-filter" data-category="criminal">Criminal</button>
+                    <button class="category-filter" data-category="administrative">Administrative</button>
+                    <button class="category-filter" data-category="corporate">Corporate</button>
+                    <button class="category-filter" data-category="tax">Tax</button>
+                </div>
+    
+                <div class="search-container">
+                    <input type="text" id="law-search" class="law-search" placeholder="Search for specific laws...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+    
+                <div class="laws-container">
+                    <!-- Constitutional Laws -->
+                    <div class="law-card" data-category="constitutional">
+                        <div class="law-card-header">
+                            <span class="law-category">Constitutional</span>
+                            <span class="law-date">Last updated: Jan 15, 2024</span>
+                        </div>
+                        <h3 class="law-title">Constitution of the Republic</h3>
+                        <p class="law-excerpt">Fundamental law establishing the structure of government and citizens'
+                            rights...
+                        </p>
+                        <div class="law-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <div class="law-stats">
+                                <span><i class="fas fa-eye"></i> 4.2k</span>
+                                <span><i class="fas fa-bookmark"></i> 350</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Civil Laws -->
+                    <div class="law-card" data-category="civil">
+                        <div class="law-card-header">
+                            <span class="law-category">Civil</span>
+                            <span class="law-date">Last updated: Mar 10, 2024</span>
+                        </div>
+                        <h3 class="law-title">Civil Code - Property Rights</h3>
+                        <p class="law-excerpt">Regulations governing ownership, transfer, and protection of property
+                            rights...
+                        </p>
+                        <div class="law-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <div class="law-stats">
+                                <span><i class="fas fa-eye"></i> 3.8k</span>
+                                <span><i class="fas fa-bookmark"></i> 275</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Criminal Laws -->
+                    <div class="law-card" data-category="criminal">
+                        <div class="law-card-header">
+                            <span class="law-category">Criminal</span>
+                            <span class="law-date">Last updated: Feb 22, 2024</span>
+                        </div>
+                        <h3 class="law-title">Criminal Code - Offenses and Penalties</h3>
+                        <p class="law-excerpt">Comprehensive guide to criminal offenses, classification, and associated
+                            penalties...</p>
+                        <div class="law-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <div class="law-stats">
+                                <span><i class="fas fa-eye"></i> 5.1k</span>
+                                <span><i class="fas fa-bookmark"></i> 420</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Administrative Laws -->
+                    <div class="law-card" data-category="administrative">
+                        <div class="law-card-header">
+                            <span class="law-category">Administrative</span>
+                            <span class="law-date">Last updated: Apr 5, 2024</span>
+                        </div>
+                        <h3 class="law-title">Administrative Procedures Act</h3>
+                        <p class="law-excerpt">Guidelines for interactions between individuals and government agencies...
+                        </p>
+                        <div class="law-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <div class="law-stats">
+                                <span><i class="fas fa-eye"></i> 2.7k</span>
+                                <span><i class="fas fa-bookmark"></i> 190</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Corporate Laws -->
+                    <div class="law-card" data-category="corporate">
+                        <div class="law-card-header">
+                            <span class="law-category">Corporate</span>
+                            <span class="law-date">Last updated: May 12, 2024</span>
+                        </div>
+                        <h3 class="law-title">Corporate Governance Standards</h3>
+                        <p class="law-excerpt">Regulations for operational management, shareholder rights, and executive
+                            responsibilities...</p>
+                        <div class="law-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <div class="law-stats">
+                                <span><i class="fas fa-eye"></i> 3.4k</span>
+                                <span><i class="fas fa-bookmark"></i> 310</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Tax Laws -->
+                    <div class="law-card" data-category="tax">
+                        <div class="law-card-header">
+                            <span class="law-category">Tax</span>
+                            <span class="law-date">Last updated: Jun 8, 2024</span>
+                        </div>
+                        <h3 class="law-title">Income Tax Regulations</h3>
+                        <p class="law-excerpt">Comprehensive guidelines for personal and corporate income taxation...</p>
+                        <div class="law-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <div class="law-stats">
+                                <span><i class="fas fa-eye"></i> 4.5k</span>
+                                <span><i class="fas fa-bookmark"></i> 380</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="laws-pagination">
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn"><i class="fas fa-ellipsis-h"></i></button>
+                    <button class="pagination-btn">10</button>
+                    <button class="pagination-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Law Detail Modal - Add this at the end of the body, before closing body tag -->
+        <div class="law-modal" id="lawModal">
+            <div class="law-modal-content">
+                <div class="law-modal-header">
+                    <h3 class="modal-title">Law Details</h3>
+                    <button class="close-modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="law-modal-body">
+                    <div class="law-info">
+                        <span class="law-category-tag"></span>
+                        <span class="law-number">No. 123/2024</span>
+                        <span class="law-date">Last updated: <span id="modalLawDate"></span></span>
+                    </div>
+                    <h2 class="law-full-title"></h2>
+                    <div class="law-metadata">
+                        <div class="metadata-item">
+                            <span class="metadata-label">Effective since:</span>
+                            <span class="metadata-value">January 1, 2024</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="metadata-label">Status:</span>
+                            <span class="metadata-value">In force</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="metadata-label">Related laws:</span>
+                            <span class="metadata-value">15</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="metadata-label">Court cases:</span>
+                            <span class="metadata-value">42</span>
+                        </div>
+                    </div>
+                    <div class="law-content">
+                        <p class="law-description"></p>
+                        <div class="law-sections">
+                            <h4>Key Sections</h4>
+                            <ul class="sections-list">
+                                <li><strong>Section 1:</strong> Definitions and Scope</li>
+                                <li><strong>Section 2:</strong> Rights and Obligations</li>
+                                <li><strong>Section 3:</strong> Procedural Requirements</li>
+                                <li><strong>Section 4:</strong> Enforcement Mechanisms</li>
+                                <li><strong>Section 5:</strong> Penalties and Remedies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="law-modal-footer">
+                    <button class="btn btn-outline">Download PDF</button>
+                    <a href="./lawExplanation.html" class="btn btn-primary">AI Analysis</a>
+                </div>
+            </div>
+        </div>
+        <script src="lawsPage.js"></script>
+</body>
+</html>
+<!-- lawExplanation.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Law Explanation - Legal·AI</title>
+    <link rel="stylesheet" href="lawExplanationStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar (Same as other pages) -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-left">
+                <div class="logo-container">
+                    <img src="./assets/logos/legal-ai-logo.svg" alt="Logo" class="logo-small">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="./index.html" class="active btn">Legal • AI</a></li>
+                    <li><a href="#">Possibilities</a></li>
+                    <li><a href="#">For You</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <select class="language-selector">
+                    <option value="en">Eng</option>
+                    <option value="ar">ع</option>
+                </select>
+                <a href="./login.html" class="btn btn-primary login">Login</a>
+            </div>
+        </div>
+    </nav>
+    <main class="law-explanation-container">
+        <section class="law-header">
+            <div class="law-meta">
+                <span class="law-category">Constitutional Law</span>
+                <span class="law-number">No. 123/2024</span>
+            </div>
+            <h1 class="law-title">Constitution of the Republic - Fundamental Rights</h1>
+        </section>
+
+        <section class="ai-explanation">
+            <div class="ai-explanation-header">
+                <h2>AI-Powered Legal Explanation</h2>
+                <div class="ai-confidence">
+                    <span>Confidence Level:</span>
+                    <div class="confidence-bar">
+                        <div class="confidence-level" style="width: 85%;"></div>
+                    </div>
+                    <span class="confidence-percentage">85%</span>
+                </div>
+            </div>
+
+            <div class="explanation-content">
+                <div class="explanation-section">
+                    <h3>Overview</h3>
+                    <p>This constitutional law defines and protects the fundamental rights of citizens, establishing the core principles of individual liberty, equality, and justice within the republic.</p>
+                </div>
+
+                <div class="explanation-section">
+                    <h3>Key Provisions</h3>
+                    <ul>
+                        <li>
+                            <strong>Right to Equality:</strong>
+                            <p>Guarantees equal protection under the law, prohibiting discrimination based on race, gender, religion, or social status.</p>
+                        </li>
+                        <li>
+                            <strong>Freedom of Expression:</strong>
+                            <p>Protects the right to free speech, press, and peaceful assembly, with reasonable restrictions to maintain social harmony.</p>
+                        </li>
+                        <li>
+                            <strong>Right to Fair Trial:</strong>
+                            <p>Ensures access to justice, right to legal representation, and protection against arbitrary arrest and detention.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="explanation-section">
+                    <h3>Practical Implications</h3>
+                    <p>This law serves as a foundational document that guides judicial interpretation, legislative action, and protects citizens' fundamental rights against potential governmental overreach.</p>
+                </div>
+            </div>
+
+            <div class="ai-source-references">
+                <h3>Sources and References</h3>
+                <ul>
+                    <li>Supreme Court Precedent Cases</li>
+                    <li>International Human Rights Conventions</li>
+                    <li>Legal Scholarly Articles</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="user-interaction">
+            <div class="explanation-rating">
+                <h3>How helpful was this explanation?</h3>
+                <div class="star-rating">
+                    <input type="radio" name="rating" value="5" id="star5">
+                    <label for="star5"></label>
+                    <input type="radio" name="rating" value="4" id="star4">
+                    <label for="star4"></label>
+                    <input type="radio" name="rating" value="3" id="star3">
+                    <label for="star3"></label>
+                    <input type="radio" name="rating" value="2" id="star2">
+                    <label for="star2"></label>
+                    <input type="radio" name="rating" value="1" id="star1">
+                    <label for="star1"></label>
+                </div>
+            </div>
+
+            <div class="comments-section">
+                <h3>Comments and Discussions</h3>
+                <form class="comment-form">
+                    <textarea placeholder="Share your insights or ask questions about this law explanation" required></textarea>
+                    <button type="submit" class="btn btn-primary">Post Comment</button>
+                </form>
+
+                <div class="existing-comments">
+                    <div class="comment">
+                        <img src="https://via.placeholder.com/50" alt="User Avatar" class="user-avatar">
+                        <div class="comment-content">
+                            <h4>Maria K.</h4>
+                            <p>Great explanation! Could you elaborate more on the practical applications of the right to fair trial?</p>
+                            <div class="comment-meta">
+                                <span>2 hours ago</span>
+                                <a href="#" class="reply-link">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer content from previous pages -->
+    </footer>
+
+    <script src="lawExplanationScript.js"></script>
+</body>
+</html>
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Legal·AI</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-left">
+                <div class="logo-container">
+                    <img src="./assets/logos/legal-ai-logo.svg" alt="Logo" class="logo-small">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="./index.html" class="btn">Legal • AI</a></li>
+                    <li><a href="#">Possibilities</a></li>
+                    <li><a href="#">For You</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <select class="language-selector">
+                    <option value="en">Eng</option>
+                    <option value="ar">ع</option>
+                </select>
+            </div>
+        </div>
+    </nav> -->
+
+    <!-- Login Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <h2>Welcome Back</h2>
+                    <p>Log in to access your Legal·AI account</p>
+                </div>
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required placeholder="Enter your password">
+                        <i class="fas fa-lock"></i>
+                        <button type="button" class="toggle-password">
+                            <i class="fas fa-eye-slash"></i>
+                        </button>
+                    </div>
+                    <div class="form-actions">
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                    <div class="auth-divider">
+                        <span>or</span>
+                    </div>
+                    <div class="social-login">
+                        <button type="button" class="btn btn-google">
+                            <i class="fab fa-google"></i> Continue with Google
+                        </button>
+                    </div>
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="signup.html" class="signup-link">Sign Up</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="login.js"></script>
+</body>
+</html>
+<!-- signUp.html --><!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up - Legal·AI</title>
+        <link rel="stylesheet" href="signup.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Navigation Bar
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-left">
+                    <div class="logo-container">
+                        <img src="./assets/logos/legal-ai-logo.svg" alt="Logo" class="logo-small">
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="./index.html" class="btn">Legal • AI</a></li>
+                        <li><a href="#">Possibilities</a></li>
+                        <li><a href="#">For You</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <select class="language-selector">
+                        <option value="en">Eng</option>
+                        <option value="ar">ع</option>
+                    </select>
+                </div>
+            </div>
+        </nav> -->
+    
+        <!-- Signup Section -->
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-container">
+                    <div class="auth-header">
+                        <h2>Create Your Account</h2>
+                        <p>Join Legal·AI and transform your legal research</p>
+                    </div>
+                    <form id="signup-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" name="full-name" required placeholder="Enter your full name">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required placeholder="Create a strong password">
+                            <i class="fas fa-lock"></i>
+                            <button type="button" class="toggle-password">
+                                <i class="fas fa-eye-slash"></i>
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required placeholder="Repeat your password">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                        <div class="auth-divider">
+                            <span>or</span>
+                        </div>
+                        <div class="social-login">
+                            <button type="button" class="btn btn-google">
+                                <i class="fab fa-google"></i> Sign Up with Google
+                            </button>
+                        </div>
+                        <div class="auth-footer">
+                            <p>Already have an account? <a href="login.html" class="login-link">Log In</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    
+        <script src="signup.js"></script>
+    </body>
+    </html>
