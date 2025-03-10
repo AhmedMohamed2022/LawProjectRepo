@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laws Page</title>
+    <link rel="stylesheet" href="../css/lawPageStyles.css">
+    <link rel="stylesheet" href="../css/dynamiclaws.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-left">
+                    <div class="logo-container">
+                        <img src="../assets/logos/legal-ai-logo.svg" alt="Logo" class="logo-small">
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="../index.html" class="active btn">Legal • AI</a></li>
+                        <li><a href="#">Possibilities</a></li>
+                        <li><a href="#">For You</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <select class="language-selector">
+                        <option value="en">Eng</option>
+                        <option value="ar">ع</option>
+                    </select>
+                    <a href="./login.html" class="btn btn-primary login">Login</a>
+                </div>
+            </div>
+        </nav>
+    
+        <!-- Law Categories Section - Add this after the Features Section -->
+        <section class="law-categories">
+            <div class="container">
+                <h2 class="section-heading">Browse Laws by Category</h2>
+                <p class="section-description">Our AI-powered platform organizes legal documents into intuitive categories
+                    for
+                    easy access and research</p>
+    
+                <div class="category-filters">
+                    <button class="category-filter active" data-category="all">All Laws</button>
+                    <button class="category-filter" data-category="constitutional">Constitutional</button>
+                    <button class="category-filter" data-category="civil">Civil</button>
+                    <button class="category-filter" data-category="criminal">Criminal</button>
+                    <button class="category-filter" data-category="administrative">Administrative</button>
+                    <button class="category-filter" data-category="corporate">Corporate</button>
+                    <button class="category-filter" data-category="tax">Tax</button>
+                </div>
+    
+                <div class="search-container">
+                    <input type="text" id="law-search" class="law-search" placeholder="Search for specific laws...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+    
+                <div class="laws-container">
+                    <!-- Constitutional Laws -->
+                    <div class="law-card" data-category="constitutional">
+                        <div class="law-card-header">
+                            <span class="law-category">Constitutional</span>
+                            <span class="law-date">Last updated: Jan 15, 2024</span>
+                        </div>
+                        <h3 class="law-title">Constitution of the Republic</h3>
+                        <p class="law-excerpt">Fundamental law establishing the structure of government and citizens'
+                            rights...
+                        </p>
+                        <div class="law-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <div class="law-stats">
+                                <span><i class="fas fa-eye"></i> 4.2k</span>
+                                <span><i class="fas fa-bookmark"></i> 350</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Civil Laws -->
+                    <div class="law-card" data-category="civil">
+                        <div class="law-card-header">
+                            <span class="law-category">Civil</span>
+                            <span class="law-date">Last updated: Mar 10, 2024</span>
+                        </div>
+                        <h3 class="law-title">Civil Code - Property Rights</h3>
+                        <p class="law-excerpt">Regulations governing ownership, transfer, and protection of property
+                            rights...
+                        </p>
+                        <div class="law-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <div class="law-stats">
+                                <span><i class="fas fa-eye"></i> 3.8k</span>
+                                <span><i class="fas fa-bookmark"></i> 275</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Criminal Laws -->
+                    <div class="law-card" data-category="criminal">
+                        <div class="law-card-header">
+                            <span class="law-category">Criminal</span>
+                            <span class="law-date">Last updated: Feb 22, 2024</span>
+                        </div>
+                        <h3 class="law-title">Criminal Code - Offenses and Penalties</h3>
+                        <p class="law-excerpt">Comprehensive guide to criminal offenses, classification, and associated
+                            penalties...</p>
+                        <div class="law-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <div class="law-stats">
+                                <span><i class="fas fa-eye"></i> 5.1k</span>
+                                <span><i class="fas fa-bookmark"></i> 420</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Administrative Laws -->
+                    <div class="law-card" data-category="administrative">
+                        <div class="law-card-header">
+                            <span class="law-category">Administrative</span>
+                            <span class="law-date">Last updated: Apr 5, 2024</span>
+                        </div>
+                        <h3 class="law-title">Administrative Procedures Act</h3>
+                        <p class="law-excerpt">Guidelines for interactions between individuals and government agencies...
+                        </p>
+                        <div class="law-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <div class="law-stats">
+                                <span><i class="fas fa-eye"></i> 2.7k</span>
+                                <span><i class="fas fa-bookmark"></i> 190</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Corporate Laws -->
+                    <div class="law-card" data-category="corporate">
+                        <div class="law-card-header">
+                            <span class="law-category">Corporate</span>
+                            <span class="law-date">Last updated: May 12, 2024</span>
+                        </div>
+                        <h3 class="law-title">Corporate Governance Standards</h3>
+                        <p class="law-excerpt">Regulations for operational management, shareholder rights, and executive
+                            responsibilities...</p>
+                        <div class="law-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <div class="law-stats">
+                                <span><i class="fas fa-eye"></i> 3.4k</span>
+                                <span><i class="fas fa-bookmark"></i> 310</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Tax Laws -->
+                    <div class="law-card" data-category="tax">
+                        <div class="law-card-header">
+                            <span class="law-category">Tax</span>
+                            <span class="law-date">Last updated: Jun 8, 2024</span>
+                        </div>
+                        <h3 class="law-title">Income Tax Regulations</h3>
+                        <p class="law-excerpt">Comprehensive guidelines for personal and corporate income taxation...</p>
+                        <div class="law-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <div class="law-stats">
+                                <span><i class="fas fa-eye"></i> 4.5k</span>
+                                <span><i class="fas fa-bookmark"></i> 380</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="laws-pagination">
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn"><i class="fas fa-ellipsis-h"></i></button>
+                    <button class="pagination-btn">10</button>
+                    <button class="pagination-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Law Detail Modal - Add this at the end of the body, before closing body tag -->
+        <div class="law-modal" id="lawModal">
+            <div class="law-modal-content">
+                <div class="law-modal-header">
+                    <h3 class="modal-title">Law Details</h3>
+                    <button class="close-modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="law-modal-body">
+                    <div class="law-info">
+                        <span class="law-category-tag"></span>
+                        <span class="law-number">No. 123/2024</span>
+                        <span class="law-date">Last updated: <span id="modalLawDate"></span></span>
+                    </div>
+                    <h2 class="law-full-title"></h2>
+                    <div class="law-metadata">
+                        <div class="metadata-item">
+                            <span class="metadata-label">Effective since:</span>
+                            <span class="metadata-value">January 1, 2024</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="metadata-label">Status:</span>
+                            <span class="metadata-value">In force</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="metadata-label">Related laws:</span>
+                            <span class="metadata-value">15</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="metadata-label">Court cases:</span>
+                            <span class="metadata-value">42</span>
+                        </div>
+                    </div>
+                    <div class="law-content">
+                        <p class="law-description"></p>
+                        <div class="law-sections">
+                            <h4>Key Sections</h4>
+                            <ul class="sections-list">
+                                <li><strong>Section 1:</strong> Definitions and Scope</li>
+                                <li><strong>Section 2:</strong> Rights and Obligations</li>
+                                <li><strong>Section 3:</strong> Procedural Requirements</li>
+                                <li><strong>Section 4:</strong> Enforcement Mechanisms</li>
+                                <li><strong>Section 5:</strong> Penalties and Remedies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="law-modal-footer">
+                    <button class="btn btn-outline">Download PDF</button>
+                    <a href="/html/dynamicExplanation.html" class="btn btn-primary">AI Analysis</a>
+                </div>
+            </div>
+        </div>
+        <!-- <script src="../js/lawsPage.js"></script> -->
+        <script src="../js/dynamiclaws.js"></script>
+</body>
+</html>

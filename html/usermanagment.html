@@ -1,0 +1,348 @@
+<!-- User Management Section -->
+<section id="user-management" class="dashboard-section" style="display: none;">
+    <div class="section-header">
+        <h2>User Management</h2>
+        <button class="btn-primary"><i class="fas fa-plus"></i> Add New User</button>
+    </div>
+    
+    <div class="filter-container">
+        <div class="search-filter">
+            <i class="fas fa-search"></i>
+            <input type="text" id="user-search" placeholder="Search users...">
+        </div>
+        
+        <div class="filter-group">
+            <select id="role-filter" class="filter-select">
+                <option value="">All Roles</option>
+                <option value="admin">Administrator</option>
+                <option value="editor">Editor</option>
+                <option value="contributor">Contributor</option>
+                <option value="viewer">Viewer</option>
+            </select>
+            
+            <select id="status-filter" class="filter-select">
+                <option value="">All Statuses</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+                <option value="pending">Pending</option>
+            </select>
+            
+            <button class="btn-outline filter-btn"><i class="fas fa-filter"></i> More Filters</button>
+        </div>
+    </div>
+    
+    <div class="users-table-container">
+        <table class="users-table">
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="select-all-users">
+                    </th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Last Login</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="user-checkbox"></td>
+                    <td>#USR-001</td>
+                    <td>
+                        <div class="user-info">
+                            <div class="user-avatar">JD</div>
+                            <div>
+                                <div class="user-name">John Doe</div>
+                                <div class="user-department">Legal Department</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>john.doe@example.com</td>
+                    <td><span class="role-badge admin">Administrator</span></td>
+                    <td>Mar 05, 2025</td>
+                    <td><span class="status-badge active">Active</span></td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="user-checkbox"></td>
+                    <td>#USR-002</td>
+                    <td>
+                        <div class="user-info">
+                            <div class="user-avatar">JS</div>
+                            <div>
+                                <div class="user-name">Jane Smith</div>
+                                <div class="user-department">Compliance</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>jane.smith@example.com</td>
+                    <td><span class="role-badge editor">Editor</span></td>
+                    <td>Mar 07, 2025</td>
+                    <td><span class="status-badge active">Active</span></td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="user-checkbox"></td>
+                    <td>#USR-003</td>
+                    <td>
+                        <div class="user-info">
+                            <div class="user-avatar">RJ</div>
+                            <div>
+                                <div class="user-name">Robert Johnson</div>
+                                <div class="user-department">Regulatory Affairs</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>robert.johnson@example.com</td>
+                    <td><span class="role-badge contributor">Contributor</span></td>
+                    <td>Mar 06, 2025</td>
+                    <td><span class="status-badge inactive">Inactive</span></td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="user-checkbox"></td>
+                    <td>#USR-004</td>
+                    <td>
+                        <div class="user-info">
+                            <div class="user-avatar">MW</div>
+                            <div>
+                                <div class="user-name">Maria Williams</div>
+                                <div class="user-department">Legal Research</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>maria.williams@example.com</td>
+                    <td><span class="role-badge viewer">Viewer</span></td>
+                    <td>Mar 01, 2025</td>
+                    <td><span class="status-badge active">Active</span></td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="user-checkbox"></td>
+                    <td>#USR-005</td>
+                    <td>
+                        <div class="user-info">
+                            <div class="user-avatar">TB</div>
+                            <div>
+                                <div class="user-name">Thomas Brown</div>
+                                <div class="user-department">Documentation</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>thomas.brown@example.com</td>
+                    <td><span class="role-badge contributor">Contributor</span></td>
+                    <td>Feb 28, 2025</td>
+                    <td><span class="status-badge pending">Pending</span></td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="user-checkbox"></td>
+                    <td>#USR-006</td>
+                    <td>
+                        <div class="user-info">
+                            <div class="user-avatar">SL</div>
+                            <div>
+                                <div class="user-name">Sarah Lee</div>
+                                <div class="user-department">Policy Management</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>sarah.lee@example.com</td>
+                    <td><span class="role-badge editor">Editor</span></td>
+                    <td>Mar 04, 2025</td>
+                    <td><span class="status-badge active">Active</span></td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="table-pagination">
+        <div class="pagination-info">
+            Showing <span>1-6</span> of <span>124</span> users
+        </div>
+        <div class="pagination-controls">
+            <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <span class="pagination-ellipsis">...</span>
+            <button class="pagination-btn">21</button>
+            <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="pagination-options">
+            <select id="users-per-page">
+                <option value="6">6 per page</option>
+                <option value="12">12 per page</option>
+                <option value="24">24 per page</option>
+                <option value="48">48 per page</option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- User Management Modals -->
+    <div id="add-user-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New User</h3>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="add-user-form">
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="user-first-name">First Name</label>
+                            <input type="text" id="user-first-name" placeholder="Enter first name" required>
+                        </div>
+                        <div class="form-group half">
+                            <label for="user-last-name">Last Name</label>
+                            <input type="text" id="user-last-name" placeholder="Enter last name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-email">Email Address</label>
+                        <input type="email" id="user-email" placeholder="Enter email address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="user-role">Role</label>
+                            <select id="user-role" required>
+                                <option value="">Select Role</option>
+                                <option value="admin">Administrator</option>
+                                <option value="editor">Editor</option>
+                                <option value="contributor">Contributor</option>
+                                <option value="viewer">Viewer</option>
+                            </select>
+                        </div>
+                        <div class="form-group half">
+                            <label for="user-department">Department</label>
+                            <select id="user-department" required>
+                                <option value="">Select Department</option>
+                                <option value="legal">Legal Department</option>
+                                <option value="compliance">Compliance</option>
+                                <option value="regulatory">Regulatory Affairs</option>
+                                <option value="research">Legal Research</option>
+                                <option value="documentation">Documentation</option>
+                                <option value="policy">Policy Management</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="user-password">Password</label>
+                            <input type="password" id="user-password" placeholder="Enter password" required>
+                        </div>
+                        <div class="form-group half">
+                            <label for="user-confirm-password">Confirm Password</label>
+                            <input type="password" id="user-confirm-password" placeholder="Confirm password" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>User Permissions</label>
+                        <div class="permissions-container">
+                            <div class="permission-group">
+                                <h4>Law Management</h4>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-view-laws">
+                                    <label for="perm-view-laws">View Laws</label>
+                                </div>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-edit-laws">
+                                    <label for="perm-edit-laws">Edit Laws</label>
+                                </div>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-delete-laws">
+                                    <label for="perm-delete-laws">Delete Laws</label>
+                                </div>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-publish-laws">
+                                    <label for="perm-publish-laws">Publish Laws</label>
+                                </div>
+                            </div>
+                            
+                            <div class="permission-group">
+                                <h4>User Management</h4>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-view-users">
+                                    <label for="perm-view-users">View Users</label>
+                                </div>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-edit-users">
+                                    <label for="perm-edit-users">Edit Users</label>
+                                </div>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-delete-users">
+                                    <label for="perm-delete-users">Delete Users</label>
+                                </div>
+                            </div>
+                            
+                            <div class="permission-group">
+                                <h4>System Settings</h4>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-view-settings">
+                                    <label for="perm-view-settings">View Settings</label>
+                                </div>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-edit-settings">
+                                    <label for="perm-edit-settings">Edit Settings</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-notes">Notes</label>
+                        <textarea id="user-notes" rows="3" placeholder="Enter additional notes about this user"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-profile-pic">Profile Picture</label>
+                        <div class="file-upload">
+                            <input type="file" id="user-profile-pic" accept="image/*">
+                            <label for="user-profile-pic" class="file-upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Drop image here or click to upload</span>
+                            </label>
+                        </div>
+                        <div class="upload-preview"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline" id="cancel-add-user">Cancel</button>
+                <button class="btn-primary" id="save-new-user">Save User</button>
+            </div>
+        </div>
+    </div>
+</section>

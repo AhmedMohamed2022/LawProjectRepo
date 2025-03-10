@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal AI - Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/adminDashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="../assets/logos/legal-ai-logo.svg" alt="Logo" class="logo-small">
+                <h2 class="logo-text">Legal • AI</h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#dashboard-overview"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#laws-management"><i class="fas fa-gavel"></i> Laws Management</a>
+                    </li>
+                    <li>
+                        <a href="#user-management"><i class="fas fa-users"></i> User Management</a>
+                    </li>
+                    <li>
+                        <a href="#content-management"><i class="fas fa-file-alt"></i> Content Management</a>
+                    </li>
+                    <li>
+                        <a href="#analytics"><i class="fas fa-chart-line"></i> Analytics</a>
+                    </li>
+                    <li>
+                        <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="../index.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for anything...">
+                </div>
+                
+                <div class="header-tools">
+                    <button class="tool-button"><i class="fas fa-bell"></i><span class="notification-badge">3</span></button>
+                    <button class="tool-button"><i class="fas fa-envelope"></i><span class="notification-badge">5</span></button>
+                    <div class="admin-profile">
+                        <img src="../assets/avatars/admin-avatar.jpg" alt="Admin" class="admin-avatar">
+                        <div class="admin-info">
+                            <h4>Admin User</h4>
+                            <span>Administrator</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Dashboard Overview Section -->
+            <section id="dashboard-overview" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Dashboard Overview</h2>
+                    <p class="section-date">Today: <span id="current-date">March 6, 2025</span></p>
+                </div>
+                
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-user-plus"></i></div>
+                        <div class="stat-info">
+                            <h3>1,245</h3>
+                            <p>Total Users</p>
+                        </div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>15.3%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-gavel"></i></div>
+                        <div class="stat-info">
+                            <h3>532</h3>
+                            <p>Laws Published</p>
+                        </div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>8.2%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-eye"></i></div>
+                        <div class="stat-info">
+                            <h3>48,762</h3>
+                            <p>Total Views</p>
+                        </div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>12.7%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-search"></i></div>
+                        <div class="stat-info">
+                            <h3>8,941</h3>
+                            <p>Law Searches</p>
+                        </div>
+                        <div class="stat-change negative">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>3.4%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-charts">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>User Activity</h3>
+                            <div class="chart-actions">
+                                <button class="btn-outline active">Week</button>
+                                <button class="btn-outline">Month</button>
+                                <button class="btn-outline">Year</button>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="userActivityChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Laws by Category</h3>
+                            <button class="btn-outline"><i class="fas fa-download"></i> Export</button>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="lawCategoriesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recent-activity">
+                    <div class="section-header">
+                        <h3>Recent Activity</h3>
+                        <button class="btn-outline">View All</button>
+                    </div>
+                    
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-plus-circle"></i></div>
+                            <div class="activity-details">
+                                <h4>New Law Added</h4>
+                                <p>Criminal Code Amendment - Section 15</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                            <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-user-plus"></i></div>
+                            <div class="activity-details">
+                                <h4>New User Registered</h4>
+                                <p>John Doe (john.doe@example.com)</p>
+                                <span class="activity-time">5 hours ago</span>
+                            </div>
+                            <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-edit"></i></div>
+                            <div class="activity-details">
+                                <h4>Law Updated</h4>
+                                <p>Civil Code - Property Rights</p>
+                                <span class="activity-time">Yesterday</span>
+                            </div>
+                            <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-file-upload"></i></div>
+                            <div class="activity-details">
+                                <h4>New Document Uploaded</h4>
+                                <p>Administrative Procedures - Guidelines</p>
+                                <span class="activity-time">Yesterday</span>
+                            </div>
+                            <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Content for other sections will be added next -->
+            <!-- Laws Management Section -->
+<section id="laws-management" class="dashboard-section" style="display: none;">
+    <div class="section-header">
+        <h2>Laws Management</h2>
+        <!-- <button class="btn-primary"><i class="fas fa-plus"></i> Add New Law</button> -->
+    </div>
+    
+    <div class="filter-container">
+        <div class="search-filter">
+            <i class="fas fa-search"></i>
+            <input type="text" id="law-search" placeholder="Search laws...">
+        </div>
+        
+        <div class="filter-group">
+            <select id="category-filter" class="filter-select">
+                <option value="">All Categories</option>
+                <option value="constitutional">Constitutional</option>
+                <option value="civil">Civil</option>
+                <option value="criminal">Criminal</option>
+                <option value="administrative">Administrative</option>
+                <option value="corporate">Corporate</option>
+                <option value="tax">Tax</option>
+            </select>
+            
+            <select id="status-filter" class="filter-select">
+                <option value="">All Statuses</option>
+                <option value="published">Published</option>
+                <option value="draft">Draft</option>
+                <option value="archived">Archived</option>
+            </select>
+            
+            <button class="btn-outline filter-btn"><i class="fas fa-filter"></i> More Filters</button>
+        </div>
+    </div>
+    
+    <div class="laws-table-container">
+        <table class="laws-table">
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="select-all-laws">
+                    </th>
+                    <th>ID</th>
+                    <th>Law Title</th>
+                    <th>Category</th>
+                    <th>Date Published</th>
+                    <th>Status</th>
+                    <th>Views</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="law-checkbox"></td>
+                    <td>#LW-001</td>
+                    <td>Constitutional Amendment - Article 5</td>
+                    <td><span class="category-badge constitutional">Constitutional</span></td>
+                    <td>Jan 15, 2025</td>
+                    <td><span class="status-badge published">Published</span></td>
+                    <td>2,451</td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="law-checkbox"></td>
+                    <td>#LW-002</td>
+                    <td>Civil Code - Property Rights</td>
+                    <td><span class="category-badge civil">Civil</span></td>
+                    <td>Jan 20, 2025</td>
+                    <td><span class="status-badge published">Published</span></td>
+                    <td>1,938</td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="law-checkbox"></td>
+                    <td>#LW-003</td>
+                    <td>Criminal Code - Section 15</td>
+                    <td><span class="category-badge criminal">Criminal</span></td>
+                    <td>Jan 28, 2025</td>
+                    <td><span class="status-badge published">Published</span></td>
+                    <td>3,142</td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="law-checkbox"></td>
+                    <td>#LW-004</td>
+                    <td>Administrative Procedures - Guidelines</td>
+                    <td><span class="category-badge administrative">Administrative</span></td>
+                    <td>Feb 05, 2025</td>
+                    <td><span class="status-badge draft">Draft</span></td>
+                    <td>856</td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="law-checkbox"></td>
+                    <td>#LW-005</td>
+                    <td>Corporate Governance - Regulations</td>
+                    <td><span class="category-badge corporate">Corporate</span></td>
+                    <td>Feb 10, 2025</td>
+                    <td><span class="status-badge published">Published</span></td>
+                    <td>1,245</td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="law-checkbox"></td>
+                    <td>#LW-006</td>
+                    <td>Tax Code - Income Tax Amendment</td>
+                    <td><span class="category-badge tax">Tax</span></td>
+                    <td>Feb 15, 2025</td>
+                    <td><span class="status-badge archived">Archived</span></td>
+                    <td>935</td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="table-pagination">
+        <div class="pagination-info">
+            Showing <span>1-6</span> of <span>532</span> laws
+        </div>
+        <div class="pagination-controls">
+            <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <span class="pagination-ellipsis">...</span>
+            <button class="pagination-btn">89</button>
+            <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="pagination-options">
+            <select id="items-per-page">
+                <option value="6">6 per page</option>
+                <option value="12">12 per page</option>
+                <option value="24">24 per page</option>
+                <option value="48">48 per page</option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- Law Management Modals -->
+    <div id="add-law-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Law</h3>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="add-law-form">
+                    <div class="form-group">
+                        <label for="law-title">Law Title</label>
+                        <input type="text" id="law-title" placeholder="Enter law title" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="law-category">Category</label>
+                            <select id="law-category" required>
+                                <option value="">Select Category</option>
+                                <option value="constitutional">Constitutional</option>
+                                <option value="civil">Civil</option>
+                                <option value="criminal">Criminal</option>
+                                <option value="administrative">Administrative</option>
+                                <option value="corporate">Corporate</option>
+                                <option value="tax">Tax</option>
+                            </select>
+                        </div>
+                        <div class="form-group half">
+                            <label for="law-status">Status</label>
+                            <select id="law-status" required>
+                                <option value="published">Published</option>
+                                <option value="draft">Draft</option>
+                                <option value="archived">Archived</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="law-description">Description</label>
+                        <textarea id="law-description" rows="3" placeholder="Enter brief description"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="law-content">Law Content</label>
+                        <textarea id="law-content" rows="10" placeholder="Enter law content" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Tags</label>
+                        <div class="tags-input">
+                            <input type="text" id="tag-input" placeholder="Add tag and press Enter">
+                            <div class="tags-container">
+                                <!-- Tags will be added here dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Additional Documents</label>
+                        <div class="file-upload">
+                            <input type="file" id="law-documents" multiple>
+                            <label for="law-documents" class="file-upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Drop files here or click to upload</span>
+                            </label>
+                        </div>
+                        <div class="uploaded-files">
+                            <!-- Uploaded files will be shown here -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline" id="cancel-add-law">Cancel</button>
+                <button class="btn-primary" id="save-new-law">Save Law</button>
+            </div>
+        </div>
+    </div>
+    <!-- Add this button next to the existing Add New Law button in the section-header -->
+<div class="section-header">
+    <h2>Laws Management</h2>
+    <div class="action-buttons">
+        <button class="btn-primary" id="add-law-btn"><i class="fas fa-plus"></i> Add New Law</button>
+        <button class="btn-primary" id="add-explanation-btn"><i class="fas fa-lightbulb"></i> Add Law Explanation</button>
+    </div>
+</div>
+
+<!-- Add this modal for law explanations -->
+<div id="add-explanation-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Add Law Explanation</h3>
+            <button class="close-explanation-modal"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <form id="add-explanation-form">
+                <div class="form-group">
+                    <label for="explanation-title">Explanation Title</label>
+                    <input type="text" id="explanation-title" placeholder="Enter explanation title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="related-law">Related Law</label>
+                    <select id="related-law" required>
+                        <option value="">Select Law</option>
+                        <!-- Laws will be populated dynamically -->
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="explanation-category">Category</label>
+                        <select id="explanation-category" required>
+                            <option value="">Select Category</option>
+                            <option value="interpretation">Interpretation</option>
+                            <option value="clarification">Clarification</option>
+                            <option value="precedent">Precedent</option>
+                            <option value="amendment">Amendment</option>
+                            <option value="regulation">Regulation</option>
+                        </select>
+                    </div>
+                    <div class="form-group half">
+                        <label for="explanation-status">Status</label>
+                        <select id="explanation-status" required>
+                            <option value="published">Published</option>
+                            <option value="draft">Draft</option>
+                            <option value="archived">Archived</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="explanation-summary">Summary</label>
+                    <textarea id="explanation-summary" rows="3" placeholder="Enter brief summary"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="explanation-content">Explanation Content</label>
+                    <textarea id="explanation-content" rows="10" placeholder="Enter detailed explanation" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Tags</label>
+                    <div class="tags-input">
+                        <input type="text" id="explanation-tag-input" placeholder="Add tag and press Enter">
+                        <div class="explanation-tags-container">
+                            <!-- Tags will be added here dynamically -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Supporting Documents</label>
+                    <div class="file-upload">
+                        <input type="file" id="explanation-documents" multiple>
+                        <label for="explanation-documents" class="file-upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Drop files here or click to upload</span>
+                        </label>
+                    </div>
+                    <div class="explanation-uploaded-files">
+                        <!-- Uploaded files will be shown here -->
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-outline" id="cancel-add-explanation">Cancel</button>
+            <button class="btn-primary" id="save-new-explanation">Save Explanation</button>
+        </div>
+    </div>
+</div>
+</section>
+<!-- Users Management Section -->
+<section id="users-management" class="dashboard-section">
+    <div class="section-header">
+        <h2>Users Management</h2>
+        <button class="btn-primary"><i class="fas fa-plus"></i> Add New User</button>
+    </div>
+    
+    <div class="filter-container">
+        <div class="search-filter">
+            <i class="fas fa-search"></i>
+            <input type="text" id="user-search" placeholder="Search users...">
+        </div>
+        
+        <div class="filter-group">
+            <select id="role-filter" class="filter-select">
+                <option value="">All Roles</option>
+                <option value="admin">Administrator</option>
+                <option value="editor">Editor</option>
+                <option value="viewer">Viewer</option>
+                <option value="contributor">Contributor</option>
+            </select>
+            
+            <select id="status-filter" class="filter-select">
+                <option value="">All Statuses</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+                <option value="pending">Pending</option>
+                <option value="blocked">Blocked</option>
+            </select>
+            
+            <button class="btn-outline filter-btn"><i class="fas fa-filter"></i> More Filters</button>
+        </div>
+    </div>
+    
+    <div class="users-table-container">
+        <table class="users-table">
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="select-all-users">
+                    </th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Joined Date</th>
+                    <th>Status</th>
+                    <th>Last Login</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="user-checkbox"></td>
+                    <td>#USR-001</td>
+                    <td>
+                        <div class="user-info">
+                            <img src="https://via.placeholder.com/32" alt="User" class="user-avatar">
+                            <span>John Doe</span>
+                        </div>
+                    </td>
+                    <td>john.doe@example.com</td>
+                    <td><span class="role-badge admin">Administrator</span></td>
+                    <td>Jan 10, 2025</td>
+                    <td><span class="status-badge active">Active</span></td>
+                    <td>Mar 07, 2025</td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="user-checkbox"></td>
+                    <td>#USR-002</td>
+                    <td>
+                        <div class="user-info">
+                            <img src="https://via.placeholder.com/32" alt="User" class="user-avatar">
+                            <span>Sarah Johnson</span>
+                        </div>
+                    </td>
+                    <td>sarah.j@example.com</td>
+                    <td><span class="role-badge editor">Editor</span></td>
+                    <td>Jan 15, 2025</td>
+                    <td><span class="status-badge active">Active</span></td>
+                    <td>Mar 08, 2025</td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="user-checkbox"></td>
+                    <td>#USR-003</td>
+                    <td>
+                        <div class="user-info">
+                            <img src="https://via.placeholder.com/32" alt="User" class="user-avatar">
+                            <span>Michael Chen</span>
+                        </div>
+                    </td>
+                    <td>m.chen@example.com</td>
+                    <td><span class="role-badge viewer">Viewer</span></td>
+                    <td>Jan 20, 2025</td>
+                    <td><span class="status-badge inactive">Inactive</span></td>
+                    <td>Feb 15, 2025</td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="user-checkbox"></td>
+                    <td>#USR-004</td>
+                    <td>
+                        <div class="user-info">
+                            <img src="https://via.placeholder.com/32" alt="User" class="user-avatar">
+                            <span>Emma Wilson</span>
+                        </div>
+                    </td>
+                    <td>e.wilson@example.com</td>
+                    <td><span class="role-badge contributor">Contributor</span></td>
+                    <td>Feb 05, 2025</td>
+                    <td><span class="status-badge pending">Pending</span></td>
+                    <td>Never</td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="user-checkbox"></td>
+                    <td>#USR-005</td>
+                    <td>
+                        <div class="user-info">
+                            <img src="https://via.placeholder.com/32" alt="User" class="user-avatar">
+                            <span>Alex Rodriguez</span>
+                        </div>
+                    </td>
+                    <td>a.rodriguez@example.com</td>
+                    <td><span class="role-badge editor">Editor</span></td>
+                    <td>Feb 10, 2025</td>
+                    <td><span class="status-badge active">Active</span></td>
+                    <td>Mar 06, 2025</td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="user-checkbox"></td>
+                    <td>#USR-006</td>
+                    <td>
+                        <div class="user-info">
+                            <img src="https://via.placeholder.com/32" alt="User" class="user-avatar">
+                            <span>Olivia Martinez</span>
+                        </div>
+                    </td>
+                    <td>o.martinez@example.com</td>
+                    <td><span class="role-badge viewer">Viewer</span></td>
+                    <td>Feb 15, 2025</td>
+                    <td><span class="status-badge blocked">Blocked</span></td>
+                    <td>Feb 20, 2025</td>
+                    <td class="action-buttons">
+                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="table-pagination">
+        <div class="pagination-info">
+            Showing <span>1-6</span> of <span>245</span> users
+        </div>
+        <div class="pagination-controls">
+            <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <span class="pagination-ellipsis">...</span>
+            <button class="pagination-btn">41</button>
+            <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="pagination-options">
+            <select id="items-per-page">
+                <option value="6">6 per page</option>
+                <option value="12">12 per page</option>
+                <option value="24">24 per page</option>
+                <option value="48">48 per page</option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- User Management Modals -->
+    <div id="add-user-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New User</h3>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="add-user-form">
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="user-firstname">First Name</label>
+                            <input type="text" id="user-firstname" placeholder="Enter first name" required>
+                        </div>
+                        <div class="form-group half">
+                            <label for="user-lastname">Last Name</label>
+                            <input type="text" id="user-lastname" placeholder="Enter last name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-email">Email Address</label>
+                        <input type="email" id="user-email" placeholder="Enter email address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="user-role">Role</label>
+                            <select id="user-role" required>
+                                <option value="">Select Role</option>
+                                <option value="admin">Administrator</option>
+                                <option value="editor">Editor</option>
+                                <option value="viewer">Viewer</option>
+                                <option value="contributor">Contributor</option>
+                            </select>
+                        </div>
+                        <div class="form-group half">
+                            <label for="user-status">Status</label>
+                            <select id="user-status" required>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="pending">Pending</option>
+                                <option value="blocked">Blocked</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="user-password">Password</label>
+                            <input type="password" id="user-password" placeholder="Enter password" required>
+                        </div>
+                        <div class="form-group half">
+                            <label for="user-confirm-password">Confirm Password</label>
+                            <input type="password" id="user-confirm-password" placeholder="Confirm password" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Profile Image</label>
+                        <div class="file-upload">
+                            <input type="file" id="user-avatar" accept="image/*">
+                            <label for="user-avatar" class="file-upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Drop image here or click to upload</span>
+                            </label>
+                        </div>
+                        <div class="uploaded-files">
+                            <!-- Uploaded image preview will be shown here -->
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Permissions</label>
+                        <div class="permissions-container">
+                            <div class="permission-group">
+                                <h4>Content Management</h4>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-create-content">
+                                    <label for="perm-create-content">Create content</label>
+                                </div>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-edit-content">
+                                    <label for="perm-edit-content">Edit content</label>
+                                </div>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-delete-content">
+                                    <label for="perm-delete-content">Delete content</label>
+                                </div>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-publish-content">
+                                    <label for="perm-publish-content">Publish content</label>
+                                </div>
+                            </div>
+                            
+                            <div class="permission-group">
+                                <h4>User Management</h4>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-create-user">
+                                    <label for="perm-create-user">Create users</label>
+                                </div>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-edit-user">
+                                    <label for="perm-edit-user">Edit users</label>
+                                </div>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-delete-user">
+                                    <label for="perm-delete-user">Delete users</label>
+                                </div>
+                            </div>
+                            
+                            <div class="permission-group">
+                                <h4>System Settings</h4>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-view-settings">
+                                    <label for="perm-view-settings">View settings</label>
+                                </div>
+                                <div class="permission-item">
+                                    <input type="checkbox" id="perm-edit-settings">
+                                    <label for="perm-edit-settings">Edit settings</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-notes">Notes</label>
+                        <textarea id="user-notes" rows="3" placeholder="Enter additional notes about this user"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline" id="cancel-add-user">Cancel</button>
+                <button class="btn-primary" id="save-new-user">Save User</button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- User Management Section -->
+
+<!-- Settings Section -->
+<section id="settings" class="dashboard-section" style="display: none;">
+    <div class="section-header">
+        <h2>Settings</h2>
+        <button class="btn-primary"><i class="fas fa-save"></i> Save Changes</button>
+    </div>
+    
+    <div class="settings-container">
+        <!-- System Settings -->
+        <div class="settings-card">
+            <div class="settings-card-header">
+                <h3><i class="fas fa-server"></i> System Settings</h3>
+            </div>
+            <div class="settings-card-body">
+                <div class="form-group">
+                    <label for="system-name">System Name</label>
+                    <input type="text" id="system-name" value="Legal AI Platform" placeholder="Enter system name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="system-language">Default Language</label>
+                    <select id="system-language">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>System Maintenance Mode</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="maintenance-mode">
+                        <label for="maintenance-mode"></label>
+                    </div>
+                    <span class="setting-description">When enabled, only administrators can access the system.</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Security Settings -->
+        <div class="settings-card">
+            <div class="settings-card-header">
+                <h3><i class="fas fa-shield-alt"></i> Security Settings</h3>
+            </div>
+            <div class="settings-card-body">
+                <div class="form-group">
+                    <label for="password-expiry">Password Expiration (days)</label>
+                    <input type="number" id="password-expiry" value="90" min="30" max="180">
+                    <span class="setting-description">Number of days before passwords expire.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="session-timeout">Session Timeout (minutes)</label>
+                    <input type="number" id="session-timeout" value="30" min="5" max="120">
+                    <span class="setting-description">Inactive session expiration time.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>Two-Factor Authentication</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="two-factor-auth" checked>
+                        <label for="two-factor-auth"></label>
+                    </div>
+                    <span class="setting-description">Require 2FA for administrator accounts.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>Login Attempt Limits</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="login-limits" checked>
+                        <label for="login-limits"></label>
+                    </div>
+                    <span class="setting-description">Lock accounts after 5 failed login attempts.</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Notification Settings -->
+        <div class="settings-card">
+            <div class="settings-card-header">
+                <h3><i class="fas fa-bell"></i> Notification Settings</h3>
+            </div>
+            <div class="settings-card-body">
+                <div class="form-group">
+                    <label>Email Notifications</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="email-notifications" checked>
+                        <label for="email-notifications"></label>
+                    </div>
+                    <span class="setting-description">Send email notifications for important system events.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>In-App Notifications</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="app-notifications" checked>
+                        <label for="app-notifications"></label>
+                    </div>
+                    <span class="setting-description">Display notifications within the application.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>Law Update Notifications</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="law-update-notifications" checked>
+                        <label for="law-update-notifications"></label>
+                    </div>
+                    <span class="setting-description">Notify users when laws are updated.</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Backup & Logs -->
+        <div class="settings-card">
+            <div class="settings-card-header">
+                <h3><i class="fas fa-database"></i> Backup & Logs</h3>
+            </div>
+            <div class="settings-card-body">
+                <div class="form-group">
+                    <label>Automatic Backups</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="auto-backups" checked>
+                        <label for="auto-backups"></label>
+                    </div>
+                    <span class="setting-description">Schedule automatic system backups.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="backup-frequency">Backup Frequency</label>
+                    <select id="backup-frequency">
+                        <option value="daily">Daily</option>
+                        <option value="weekly" selected>Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="log-retention">Log Retention Period (days)</label>
+                    <input type="number" id="log-retention" value="90" min="30" max="365">
+                    <span class="setting-description">Number of days to keep system logs.</span>
+                </div>
+                
+                <div class="backup-actions">
+                    <button class="btn-outline"><i class="fas fa-download"></i> Manual Backup</button>
+                    <button class="btn-outline"><i class="fas fa-search"></i> View Logs</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        </main>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
+    <!-- <script src="../js/saveLawsLocalStorage.js"></script> -->
+    <script src="../js/adminDashboard.js"></script>
+</body>
+</html>

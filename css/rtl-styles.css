@@ -1,0 +1,102 @@
+/* RTL Specific Styles */
+body.rtl {
+    font-family: 'Cairo', 'Manrope', sans-serif;
+    text-align: right;
+}
+
+.rtl .nav-left {
+    order: 2;
+}
+
+.rtl .nav-right {
+    order: 1;
+}
+
+.rtl .nav-links {
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+.rtl .stage-connector .fa-arrow-right {
+    transform: rotate(180deg);
+}
+
+.rtl .stage-connector .fa-arrow-left {
+    transform: rotate(0deg);
+}
+
+.rtl .reviewer {
+    flex-direction: row-reverse;
+}
+
+.rtl .reviewer-info {
+    text-align: right;
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+.rtl .quote-icon {
+    order: 1;
+}
+
+.rtl .faq-question i {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.rtl .contact-info {
+    text-align: right;
+}
+
+.rtl .contact-form {
+    text-align: right;
+}
+
+.rtl .fa-paper-plane {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+.rtl .footer-links {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* Fix input and text directions */
+.rtl input, 
+.rtl textarea {
+    text-align: right;
+    direction: rtl;
+}
+
+/* Fix button icon positions */
+.rtl .btn i {
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+/* Adjust feature cards for RTL */
+.rtl .feature-card .feature-content {
+    flex-direction: row-reverse;
+}
+
+/* Fix review navigation */
+.rtl .reviews-navigation {
+    flex-direction: row-reverse;
+}
+
+/* Mobile responsiveness adjustments */
+@media (max-width: 768px) {
+    .rtl .contact-content {
+        flex-direction: column;
+    }
+    
+    .rtl .stages {
+        flex-direction: column;
+    }
+    
+    .rtl .stage-connector {
+        transform: rotate(90deg);
+        margin: 15px 0;
+    }
+}
