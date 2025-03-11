@@ -689,7 +689,113 @@
   .action-buttons .btn-icon:nth-child(3):hover {
     color: var(--danger-color);
   }
-  
+  /* Explanations Table Styles */
+.explanations-table-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.explanations-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.explanations-table th {
+  background-color: #f8f9fa;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.explanations-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #e9ecef;
+  color: #212529;
+}
+
+.explanations-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Category badges for explanations */
+.category-badge.interpretation {
+  background-color: #e1f5fe;
+  color: #0288d1;
+}
+
+.category-badge.clarification {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.category-badge.precedent {
+  background-color: #ede7f6;
+  color: #512da8;
+}
+
+.category-badge.amendment {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.category-badge.regulation {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+/* Tabs for switching between laws and explanations */
+.section-tabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.section-tab {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  color: #6c757d;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.section-tab.active {
+  color: #0066cc;
+  border-bottom: 2px solid #0066cc;
+}
+
+.section-tab:hover:not(.active) {
+  color: #495057;
+  background-color: #f8f9fa;
+}
+
+/* Empty state styles */
+.empty-state {
+  padding: 3rem;
+  text-align: center;
+  color: #6c757d;
+}
+
+.empty-state i {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: #dee2e6;
+}
+
+.empty-state h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.empty-state p {
+  margin-bottom: 1.5rem;
+}
   /* Table Pagination */
   .table-pagination {
     display: flex;

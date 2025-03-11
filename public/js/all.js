@@ -623,3 +623,182 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const fullName = fullNameInput.value.trim();
     }
+    // // Configuration for explanation storage
+// const EXPLANATIONS_STORAGE_KEY = 'legal_system_explanations';
+
+// // Function to save explanations to persistent storage
+// function saveExplanations(explanationsData) {
+//     localStorage.setItem(EXPLANATIONS_STORAGE_KEY, JSON.stringify(explanationsData));
+
+//     const updateEvent = new CustomEvent('explanations-updated', { detail: { explanations: explanationsData } });
+//     document.dispatchEvent(updateEvent);
+// }
+
+// // Function to load explanations from persistent storage
+// function loadExplanations() {
+//     const storedExplanations = localStorage.getItem(EXPLANATIONS_STORAGE_KEY);
+//     return storedExplanations ? JSON.parse(storedExplanations) : [];
+// }
+
+// // Function to generate a unique ID for new explanations
+// function generateExplanationId() {
+//     const explanations = loadExplanations();
+//     let maxId = 0;
+
+//     explanations.forEach(explanation => {
+//         const idNum = parseInt(explanation.id.replace('#EXP-', ''));
+//         if (idNum > maxId) maxId = idNum;
+//     });
+
+//     const newId = maxId + 1;
+//     return `#EXP-${String(newId).padStart(3, '0')}`;
+// }
+
+// // Function to add a new explanation
+// function addNewExplanation(explanationData) {
+//     const explanations = loadExplanations();
+//     const newExplanation = {
+//         id: generateExplanationId(),
+//         title: explanationData.title,
+//         relatedLawId: explanationData.relatedLawId,
+//         category: explanationData.category,
+//         status: explanationData.status,
+//         summary: explanationData.summary,
+//         content: explanationData.content,
+//         datePublished: new Date().toISOString().split('T')[0],
+//         views: 0,
+//         tags: explanationData.tags || [],
+//         documents: explanationData.documents || []
+//     };
+
+//     explanations.push(newExplanation);
+//     saveExplanations(explanations);
+//     return newExplanation;
+// }
+
+// // Update the save explanation functionality
+// saveNewExplanationButton.addEventListener('click', function () {
+//     const form = document.getElementById('add-explanation-form');
+
+//     if (form.checkValidity()) {
+//         // Collect form data
+//         const explanationData = {
+//             title: document.getElementById('explanation-title').value,
+//             relatedLawId: document.getElementById('related-law').value,
+//             category: document.getElementById('explanation-category').value,
+//             status: document.getElementById('explanation-status').value,
+//             summary: document.getElementById('explanation-summary').value,
+//             content: document.getElementById('explanation-content').value,
+//             tags: Array.from(document.querySelectorAll('.explanation-tags-container .tag')).map(tag => tag.textContent.trim())
+//         };
+
+//         // Check if we're editing or adding
+//         const editingId = saveNewExplanationButton.getAttribute('data-editing');
+
+//         if (editingId) {
+//             // Editing existing explanation
+//             const explanations = loadExplanations();
+//             const explanationIndex = explanations.findIndex(explanation => explanation.id === editingId);
+
+//             if (explanationIndex !== -1) {
+//                 // Preserve the original id, date, and views
+//                 const originalData = explanations[explanationIndex];
+//                 explanations[explanationIndex] = {
+//                     ...originalData,
+//                     title: explanationData.title,
+//                     relatedLawId: explanationData.relatedLawId,
+//                     category: explanationData.category,
+//                     status: explanationData.status,
+//                     summary: explanationData.summary,
+//                     content: explanationData.content,
+//                     tags: explanationData.tags
+//                 };
+
+//                 saveExplanations(explanations);
+//                 saveNewExplanationButton.removeAttribute('data-editing');
+//             }
+//         } else {
+//             // Adding new explanation
+//             addNewExplanation(explanationData);
+//         }
+
+//         // Display success message
+//         alert('Explanation saved successfully!');
+
+//         // Close the modal
+//         closeAddExplanationModal();
+
+//         // If you have a function to display explanations in a table, call it here
+//         // displayExplanations();
+//     } else {
+//         // Trigger browser's built-in validation UI
+//         form.reportValidity();
+//     }
+// });
+// Define a constant for the explanations storage key
+// Function to display explanations in a table
+// async function displayExplanations() {
+//     const explanations = await loadExplanations();
+//     console.log(explanations);
+    
+//     // Find the container where the table should go
+//     const container = document.querySelector('.laws-table-container'); // Adjust this selector to match your HTML
+    
+//     if (!container) {
+//         console.error("Explanations container not found");
+//         return;
+//     }
+    
+//     // Create the table structure if it doesn't exist
+//     let table = container.querySelector('.explanations-table');
+//     if (!table) {
+//         table = document.createElement('table');
+//         table.className = 'explanations-table';
+//         table.innerHTML = '<thead><tr><th></th><th>ID</th><th>Title</th><th>Related Law</th><th>Category</th><th>Date</th><th>Status</th><th>Views</th><th>Actions</th></tr></thead><tbody></tbody>';
+//         container.appendChild(table);
+//     }
+    
+//     const tableBody = table.querySelector('tbody');
+    
+//     // Clear the current table
+//     tableBody.innerHTML = '';
+
+//     // If no explanations are available, display a message
+//     if (!explanations || explanations.length === 0) {
+//         const row = document.createElement('tr');
+//         row.innerHTML = `<td colspan="8" class="text-center">No explanations available. Add a new explanation to get started.</td>`;
+//         tableBody.appendChild(row);
+//         return;
+//     }
+
+//     // Add each explanation to the table
+//     explanations.forEach(explanation => {
+//         const row = document.createElement('tr');
+
+//         row.innerHTML = `
+//             <td><input type="checkbox" class="explanation-checkbox"></td>
+//             <td>${explanation.id}</td>
+//             <td>${explanation.title}</td>
+//             <td>${explanation.relatedLawId}</td>
+//             <td><span class="category-badge ${explanation.category}">${capitalizeFirstLetter(explanation.category)}</span></td>
+//             <td>${formatDate(explanation.datePublished)}</td>
+//             <td><span class="status-badge ${explanation.status}">${capitalizeFirstLetter(explanation.status)}</span></td>
+//             <td>${(explanation.views || 0).toLocaleString()}</td>
+//             <td class="action-buttons">
+//                 <button class="btn-icon view-explanation" data-id="${explanation.id}"><i class="fas fa-eye"></i></button>
+//                 <button class="btn-icon edit-explanation" data-id="${explanation.id}"><i class="fas fa-edit"></i></button>
+//                 <button class="btn-icon delete-explanation" data-id="${explanation.id}"><i class="fas fa-trash"></i></button>
+//             </td>
+//         `;
+
+//         tableBody.appendChild(row);
+//     });
+
+//     // Attach event listeners for the new buttons
+//     attachExplanationActionListeners();
+
+//     // Update pagination info if needed
+//     if (typeof updatePaginationInfo === 'function') {
+//         updatePaginationInfo();
+//     }
+// }

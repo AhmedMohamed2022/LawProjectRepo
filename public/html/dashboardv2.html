@@ -342,6 +342,50 @@
             </tbody>
         </table>
     </div>
+    <!-- Law Explanations Table -->
+    <div class="explanations-table-container">
+        <table class="laws-table explanations-table">
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="select-all-explanations">
+                    </th>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Related Law</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Views</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="explanations-table-body">
+                <!-- Explanation rows will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+<div class="table-pagination">
+    <div class="pagination-info">
+        Showing <span id="explanations-showing">1-6</span> of <span id="explanations-total">0</span> explanations
+    </div>
+    <div class="pagination-controls">
+        <button class="pagination-btn" id="explanations-prev-page" disabled><i class="fas fa-chevron-left"></i></button>
+        <div id="explanations-pagination-numbers">
+            <!-- Pagination numbers will be dynamically added here -->
+        </div>
+        <button class="pagination-btn" id="explanations-next-page"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="pagination-options">
+        <select id="explanations-per-page">
+            <option value="6">6 per page</option>
+            <option value="12">12 per page</option>
+            <option value="24">24 per page</option>
+            <option value="48">48 per page</option>
+        </select>
+    </div>
+</div>
     
     <div class="table-pagination">
         <div class="pagination-info">
@@ -451,7 +495,9 @@
         <button class="btn-primary" id="add-law-btn"><i class="fas fa-plus"></i> Add New Law</button>
         <button class="btn-primary" id="add-explanation-btn"><i class="fas fa-lightbulb"></i> Add Law Explanation</button>
     </div>
-</div>
+    <div class="bulk-actions">
+        <button id="bulk-delete-btn" class="btn btn-danger">Delete Selected</button>
+    </div></div>
 
 <!-- Add this modal for law explanations -->
 <div id="add-explanation-modal" class="modal">
@@ -546,6 +592,14 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
     <!-- <script src="../js/saveLawsLocalStorage.js"></script> -->
-    <script src="../js/adminDashboard.js"></script>
+<!-- Firebase SDK -->
+<!-- Include Firebase scripts -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<!-- Your script -->
+<script src="../js/adminDashboard.js"></script>
 </body>
 </html>
