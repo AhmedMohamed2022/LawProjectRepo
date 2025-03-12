@@ -55,7 +55,7 @@ function setupMobileSidebar() {
         }
     });
 }
-////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", function () {
     // Set current date
     const currentDateElement = document.getElementById("current-date");
@@ -795,128 +795,7 @@ async function addNewLaw(lawData) {
     return newLaw;
 }
 
-// Function to display laws in the table
-// async function displayLaws() {
-//     const laws = await loadLaws();
-//     const tableBody = document.querySelector('.laws-table tbody');
 
-//     // Clear the current table
-//     tableBody.innerHTML = '';
-
-//     // If no laws are available, display a message
-//     if (!laws || laws.length === 0) {
-//         const row = document.createElement('tr');
-//         row.innerHTML = `<td colspan="8" class="text-center">No laws available. Add a new law to get started.</td>`;
-//         tableBody.appendChild(row);
-//         return;
-//     }
-
-//     // Add each law to the table
-//     laws.forEach(law => {
-//         const row = document.createElement('tr');
-
-//         row.innerHTML = `
-//             <td><input type="checkbox" class="law-checkbox"></td>
-//             <td>${law.id}</td>
-//             <td>${law.title}</td>
-//             <td><span class="category-badge ${law.category}">${capitalizeFirstLetter(law.category)}</span></td>
-//             <td>${formatDate(law.datePublished)}</td>
-//             <td><span class="status-badge ${law.status}">${capitalizeFirstLetter(law.status)}</span></td>
-//             <td>${(law.views || 0).toLocaleString()}</td>
-//             <td class="action-buttons">
-//                 <button class="btn-icon view-law" data-id="${law.id}"><i class="fas fa-eye"></i></button>
-//                 <button class="btn-icon edit-law" data-id="${law.id}"><i class="fas fa-edit"></i></button>
-//                 <button class="btn-icon delete-law" data-id="${law.id}"><i class="fas fa-trash"></i></button>
-//             </td>
-//         `;
-
-//         tableBody.appendChild(row);
-//     });
-
-//     // Re-attach event listeners for the new buttons
-//     attachActionListeners();
-
-//     // Update pagination info
-//     updatePaginationInfo();
-// }
-// async function displayLaws() {
-//     try {
-//         const querySnapshot = await db.collection("laws").get();
-//         const tableBody = document.querySelector('.laws-table tbody');
-        
-//         // Clear the current table
-//         tableBody.innerHTML = '';
-        
-//         // If no laws are available, display a message
-//         if (querySnapshot.empty) {
-//             const row = document.createElement('tr');
-//             row.innerHTML = `<td colspan="8" class="text-center">No laws available. Add a new law to get started.</td>`;
-//             tableBody.appendChild(row);
-//             return;
-//         }
-        
-//         // Add each law to the table
-//         querySnapshot.forEach(doc => {
-//             const law = doc.data();
-//             const row = document.createElement('tr');
-            
-//             row.innerHTML = `
-//                 <td><input type="checkbox" class="law-checkbox"></td>
-//                 <td>${law.id || ''}</td>
-//                 <td>${law.title || ''}</td>
-//                 <td><span class="category-badge ${law.category || ''}">${capitalizeFirstLetter(law.category || '')}</span></td>
-//                 <td>${formatDate(law.datePublished ? law.datePublished.toDate() : new Date())}</td>
-//                 <td><span class="status-badge ${law.status || ''}">${capitalizeFirstLetter(law.status || '')}</span></td>
-//                 <td>${(law.views || 0).toLocaleString()}</td>
-//                 <td class="action-buttons">
-//                     <button class="btn-icon view-law" data-id="${law.id}"><i class="fas fa-eye"></i></button>
-//                     <button class="btn-icon edit-law" data-id="${law.id}"><i class="fas fa-edit"></i></button>
-//                     <button class="btn-icon delete-law" data-id="${law.id}"><i class="fas fa-trash"></i></button>
-//                 </td>
-//             `;
-            
-//             tableBody.appendChild(row);
-//         });
-        
-//         // Re-attach event listeners for the new buttons
-//         attachActionListeners();
-        
-//         // Update pagination info
-//         updatePaginationInfo();
-//     } catch (error) {
-//         console.error("Error displaying laws:", error);
-        
-//         // Fallback to localStorage if Firestore fails
-//         // laws = loadLocalLaws();
-//         // tableBody = document.querySelector('.laws-table tbody');
-//         // tableBody.innerHTML = '';
-//         // row = document.createElement('tr');
-//         // row.innerHTML = `<td colspan="8" class="text-center">No laws available. Add a new law to get started.</td>`;
-//         // tableBody.appendChild(row);
-//         // law = doc.data();
-//         // row = document.createElement('tr');
-            
-//         //     row.innerHTML = `
-//         //         <td><input type="checkbox" class="law-checkbox"></td>
-//         //         <td>${law.id || ''}</td>
-//         //         <td>${law.title || ''}</td>
-//         //         <td><span class="category-badge ${law.category || ''}">${capitalizeFirstLetter(law.category || '')}</span></td>
-//         //         <td>${formatDate(law.datePublished ? law.datePublished.toDate() : new Date())}</td>
-//         //         <td><span class="status-badge ${law.status || ''}">${capitalizeFirstLetter(law.status || '')}</span></td>
-//         //         <td>${(law.views || 0).toLocaleString()}</td>
-//         //         <td class="action-buttons">
-//         //             <button class="btn-icon view-law" data-id="${law.id}"><i class="fas fa-eye"></i></button>
-//         //             <button class="btn-icon edit-law" data-id="${law.id}"><i class="fas fa-edit"></i></button>
-//         //             <button class="btn-icon delete-law" data-id="${law.id}"><i class="fas fa-trash"></i></button>
-//         //         </td>
-//         //     `;
-            
-//         //     tableBody.appendChild(row);
-//         //  return;
-//         // Same display logic as above...
-//         // (Abbreviated for clarity - implement similar to above)
-//     }
-// }
 async function displayLaws() {
     try {
         // Get laws from Firestore
@@ -1070,57 +949,7 @@ function updatePaginationInfo() {
     }
 }
 
-// Function to attach event listeners to action buttons
-// function attachActionListeners() {
-//     // View law
-//     document.querySelectorAll('.view-law').forEach(button => {
-//         button.addEventListener('click', function () {
-//             const lawId = this.getAttribute('data-id');
-//             viewLaw(lawId);
-//         });
-//     });
 
-//     // Edit law
-//     document.querySelectorAll('.edit-law').forEach(button => {
-//         button.addEventListener('click', function () {
-//             const lawId = this.getAttribute('data-id');
-//             editLaw(lawId);
-//         });
-//     });
-
-//     // Delete law
-//     document.querySelectorAll('.delete-law').forEach(button => {
-//         button.addEventListener('click', function () {
-//             const lawId = this.getAttribute('data-id');
-//             deleteLaw(lawId);
-//         });
-//     });
-// }
-// function attachActionListeners() {
-//     // View law
-//     document.querySelectorAll('.view-law').forEach(button => {
-//         button.addEventListener('click', function () {
-//             const lawId = this.getAttribute('data-id');
-//             viewLaw(lawId).catch(error => console.error('Error viewing law:', error));
-//         });
-//     });
-
-//     // Edit law
-//     document.querySelectorAll('.edit-law').forEach(button => {
-//         button.addEventListener('click', function () {
-//             const lawId = this.getAttribute('data-id');
-//             editLaw(lawId).catch(error => console.error('Error editing law:', error));
-//         });
-//     });
-
-//     // Delete law
-//     document.querySelectorAll('.delete-law').forEach(button => {
-//         button.addEventListener('click', function () {
-//             const lawId = this.getAttribute('data-id');
-//             deleteLaw(lawId).catch(error => console.error('Error deleting law:', error));
-//         });
-//     });
-// }
 function attachActionListeners() {
     // Remove all existing event listeners by cloning and replacing elements
     document.querySelectorAll('.view-law, .edit-law, .delete-law').forEach(button => {
@@ -1155,91 +984,7 @@ function attachActionListeners() {
         });
     });
 }
-// // Function to view a law
-// function viewLaw(lawId) {
-//     const laws = loadLaws();
-//     const law = laws.find(law => law.id === lawId);
 
-//     if (law) {
-//         // Increment the view count
-//         law.views += 1;
-//         saveLaws(laws);
-
-//         // In a real app, you'd open a detailed view
-//         alert(`Viewing law: ${law.title}`);
-
-//         // After viewing, refresh the display to update view count
-//         displayLaws();
-//     }
-// }
-
-// // Function to edit a law
-// function editLaw(lawId) {
-//     const laws = loadLaws();
-//     const law = laws.find(law => law.id === lawId);
-
-//     if (law) {
-//         // Populate the modal with the law data
-//         document.getElementById('law-title').value = law.title;
-//         document.getElementById('law-category').value = law.category;
-//         document.getElementById('law-status').value = law.status;
-//         document.getElementById('law-description').value = law.description;
-//         document.getElementById('law-content').value = law.content;
-
-//         // Populate tags
-//         const tagsContainer = document.querySelector('.tags-container');
-//         tagsContainer.innerHTML = '';
-
-//         law.tags.forEach(tagText => {
-//             const tag = document.createElement('div');
-//             tag.className = 'tag';
-//             tag.innerHTML = `
-//                 ${tagText}
-//                 <span class="tag-close"><i class="fas fa-times"></i></span>
-//             `;
-
-//             tag.querySelector('.tag-close').addEventListener('click', function () {
-//                 tag.remove();
-//             });
-
-//             tagsContainer.appendChild(tag);
-//         });
-
-//         // Store the law ID for the save function
-//         saveNewLawButton.setAttribute('data-editing', lawId);
-
-//         // Open the modal
-//         openAddLawModal();
-//     }
-// }
-
-// // Function to delete a law
-// function deleteLaw(lawId) {
-//     if (confirm('Are you sure you want to delete this law?')) {
-//         const laws = loadLaws();
-//         const updatedLaws = laws.filter(law => law.id !== lawId);
-
-//         saveLaws(updatedLaws);
-//         displayLaws();
-//     }
-// }
-// Function to view a law
-// async function viewLaw(lawId) {
-//     const laws = await loadLaws();
-//     const law = laws.find(law => law.id === lawId);
-
-//     if (law) {
-//         // Increment the view count
-//         law.views += 1;
-//         await saveLaws(laws);
-
-//         // In a real app, you'd open a detailed view
-//         alert(`Viewing law: ${law.title}`);
-
-//         // After viewing, refresh the display to update view count
-//         await displayLaws();
-//     }
-// }
 // Function to view a law
 async function viewLaw(lawId) {
     try {
@@ -1343,113 +1088,7 @@ async function deleteLaw(lawId) {
     }
 }
 
-// Function to edit a law
-// async function editLaw(lawId) {
-//     const laws = await loadLaws();
-//     const law = laws.find(law => law.id === lawId);
 
-//     if (law) {
-//         // Populate the modal with the law data
-//         document.getElementById('law-title').value = law.title;
-//         document.getElementById('law-category').value = law.category;
-//         document.getElementById('law-status').value = law.status;
-//         document.getElementById('law-description').value = law.description;
-//         document.getElementById('law-content').value = law.content;
-
-//         // Populate tags
-//         const tagsContainer = document.querySelector('.tags-container');
-//         tagsContainer.innerHTML = '';
-
-//         law.tags.forEach(tagText => {
-//             const tag = document.createElement('div');
-//             tag.className = 'tag';
-//             tag.innerHTML = `
-//                 ${tagText}
-//                 <span class="tag-close"><i class="fas fa-times"></i></span>
-//             `;
-
-//             tag.querySelector('.tag-close').addEventListener('click', function () {
-//                 tag.remove();
-//             });
-
-//             tagsContainer.appendChild(tag);
-//         });
-
-//         // Store the law ID for the save function
-//         saveNewLawButton.setAttribute('data-editing', lawId);
-
-//         // Open the modal
-//         openAddLawModal();
-//     }
-// }
-
-// // Function to delete a law
-// async function deleteLaw(lawId) {
-//     if (confirm('Are you sure you want to delete this law?')) {
-//         const laws = await loadLaws();
-//         const updatedLaws = laws.filter(law => law.id !== lawId);
-
-//         await saveLaws(updatedLaws);
-//         await displayLaws();
-//     }
-// }
-// Update the save law functionality
-// saveNewLawButton.addEventListener('click', function () {
-//     const form = document.getElementById('add-law-form');
-
-//     if (form.checkValidity()) {
-//         // Collect form data
-//         const lawData = {
-//             title: document.getElementById('law-title').value,
-//             category: document.getElementById('law-category').value,
-//             status: document.getElementById('law-status').value,
-//             description: document.getElementById('law-description').value,
-//             content: document.getElementById('law-content').value,
-//             tags: Array.from(document.querySelectorAll('.tags-container .tag')).map(tag => tag.textContent.trim())
-//         };
-
-//         // Check if we're editing or adding
-//         const editingId = saveNewLawButton.getAttribute('data-editing');
-
-//         if (editingId) {
-//             // Editing existing law
-//             const laws = loadLaws();
-//             const lawIndex = laws.findIndex(law => law.id === editingId);
-
-//             if (lawIndex !== -1) {
-//                 // Preserve the original id, date, and views
-//                 const originalData = laws[lawIndex];
-//                 laws[lawIndex] = {
-//                     ...originalData,
-//                     title: lawData.title,
-//                     category: lawData.category,
-//                     status: lawData.status,
-//                     description: lawData.description,
-//                     content: lawData.content,
-//                     tags: lawData.tags
-//                 };
-
-//                 saveLaws(laws);
-//                 saveNewLawButton.removeAttribute('data-editing');
-//             }
-//         } else {
-//             // Adding new law
-//             addNewLaw(lawData);
-//         }
-
-//         // Display success message
-//         alert('Law saved successfully!');
-
-//         // Refresh the display
-//         displayLaws();
-
-//         // Close the modal
-//         closeAddLawModal();
-//     } else {
-//         // Trigger browser's built-in validation UI
-//         form.reportValidity();
-//     }
-// });
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', async function () {
@@ -1497,6 +1136,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // add explanation modal
 // Modal functionality for law explanations
 // Law Explanations JavaScript
@@ -1509,17 +1149,8 @@ const closeExplanationModalButton = document.querySelector('.close-explanation-m
 const cancelAddExplanationButton = document.getElementById('cancel-add-explanation');
 const saveNewExplanationButton = document.getElementById('save-new-explanation');
 
-// Add this before the openLawModal function
-// function getRelatedExplanations(lawId) {
-//     const storedExplanations = localStorage.getItem('legal_system_explanations');
-//     const explanations = storedExplanations ? JSON.parse(storedExplanations) : [];
-//     return explanations.filter(exp => exp.relatedLawId === lawId);
-// }
-// function openAddExplanationModal() {
-//     addExplanationModal.classList.add('active');
-//     document.body.style.overflow = 'hidden';
-//     populateRelatedLawsDropdown();
-// }
+
+
 function openAddExplanationModal() {
     const modal = document.getElementById('add-explanation-modal');
     if (!modal) return;
@@ -1540,14 +1171,7 @@ function openAddExplanationModal() {
     modal.style.display = 'block';
 }
 
-// function closeAddExplanationModal() {
-//     addExplanationModal.classList.remove('active');
-//     document.body.style.overflow = '';
-//     document.getElementById('add-explanation-form').reset();
-//     document.querySelector('.explanation-tags-container').innerHTML = '';
-//     document.querySelector('.explanation-uploaded-files').innerHTML = '';
-//     saveNewExplanationButton.removeAttribute('data-editing');
-// }
+
 function closeAddExplanationModal() {
     const modal = document.getElementById('add-explanation-modal');
     if (modal) {
@@ -1561,48 +1185,7 @@ cancelAddExplanationButton.addEventListener('click', closeAddExplanationModal);
 
 // // Function to populate the "Related Law" dropdown with existing laws
 ///replace if not 
-// async function populateRelatedLawsDropdown() {
-//     const relatedLawSelect = document.getElementById('related-law');
-    
-//     // Clear existing options except the first one (which is likely "Select a law" or similar)
-//     while (relatedLawSelect.options.length > 1) {
-//         relatedLawSelect.remove(1);
-//     }
-    
-//     try {
-//         // Load laws from Firebase
-//         const laws = await loadLaws();
-        
-//         if (!laws || laws.length === 0) {
-//             // Add a placeholder option if no laws are found
-//             const option = document.createElement('option');
-//             option.value = "";
-//             option.textContent = "No laws available";
-//             option.disabled = true;
-//             relatedLawSelect.appendChild(option);
-//             return;
-//         }
-        
-//         // Add laws to dropdown
-//         laws.forEach(law => {
-//             const option = document.createElement('option');
-//             option.value = law.id;
-//             option.textContent = `${law.id} - ${law.title}`;
-//             relatedLawSelect.appendChild(option);
-//         });
-        
-//         console.log(`Populated dropdown with ${laws.length} laws`);
-//     } catch (error) {
-//         console.error("Error populating related laws dropdown:", error);
-        
-//         // Add an error option
-//         const option = document.createElement('option');
-//         option.value = "";
-//         option.textContent = "Error loading laws";
-//         option.disabled = true;
-//         relatedLawSelect.appendChild(option);
-//     }
-// }
+
 async function populateRelatedLawsDropdown() {
     const relatedLawSelect = document.getElementById('related-law');
     if (!relatedLawSelect) return;
@@ -1714,52 +1297,7 @@ explanationFileInput.addEventListener('change', function () {
 const EXPLANATIONS_STORAGE_KEY = 'legal_ai_explanations';
 
 // Function to save law explanations
-// async function saveLawExplanations(explanations) {
-//     // First try to save to Firebase
-//     try {
-//         const explanationsCollection = db.collection("lawExplanations");
-        
-//         for (const explanation of explanations) {
-//             // Create a valid date object for each explanation
-//             let dateObj;
-//             try {
-//                 // Try to parse the date string
-//                 dateObj = new Date(explanation.datePublished);
-//                 // Check if the date is valid
-//                 if (isNaN(dateObj.getTime())) {
-//                     // If not valid, use current date
-//                     dateObj = new Date();
-//                 }
-//             } catch (e) {
-//                 // If any error in date parsing, use current date
-//                 dateObj = new Date();
-//             }
-            
-//             await explanationsCollection.add({
-//                 id: explanation.id,
-//                 title: explanation.title,
-//                 relatedLawId: explanation.relatedLawId,
-//                 category: explanation.category,
-//                 status: explanation.status,
-//                 summary: explanation.summary,
-//                 content: explanation.content,
-//                 datePublished: firebase.firestore.Timestamp.fromDate(dateObj),
-//                 lastUpdated: firebase.firestore.Timestamp.fromDate(new Date()),
-//                 views: explanation.views || 0,
-//                 tags: explanation.tags || [],
-//                 documents: explanation.documents || []
-//             });
-//         }
-        
-//         console.log("Law explanations added successfully!"); 
-//         // But also save to localStorage as backup
-//         localStorage.setItem(EXPLANATIONS_STORAGE_KEY, JSON.stringify(explanations));
-//     } catch (error) {
-//         console.error("Error adding explanations to Firebase:", error);
-//         // At least save to localStorage
-//         localStorage.setItem(EXPLANATIONS_STORAGE_KEY, JSON.stringify(explanations));
-//     }
-// }
+
 async function saveLawExplanations(explanations) {
     try {
         const explanationsCollection = db.collection("lawExplanations");
@@ -1950,29 +1488,7 @@ async function updateExplanation(explanationId, updatedData) {
 }
 
 // Function to delete an explanation
-// async function deleteExplanation(explanationId) {
-//     try {
-//         // Delete from Firebase
-//         const querySnapshot = await db.collection("lawExplanations")
-//             .where("id", "==", explanationId)
-//             .get();
-            
-//         querySnapshot.forEach((doc) => {
-//             doc.ref.delete();
-//         });
-        
-//         // Update localStorage as well
-//         const explanations = await loadExplanations();
-//         const updatedExplanations = explanations.filter(exp => exp.id !== explanationId);
-//         localStorage.setItem(EXPLANATIONS_STORAGE_KEY, JSON.stringify(updatedExplanations));
-        
-//         console.log("Explanation deleted successfully");
-//         return true;
-//     } catch (error) {
-//         console.error("Error deleting explanation:", error);
-//         return false;
-//     }
-// }
+
 async function deleteExplanation(id) {
     if (!confirm('Are you sure you want to delete this explanation? This action cannot be undone.')) {
         return;
@@ -2161,99 +1677,7 @@ function updateExplanationsPagination() {
     document.getElementById('explanations-prev-page').disabled = currentExplanationsPage === 1;
     document.getElementById('explanations-next-page').disabled = currentExplanationsPage === totalPages || totalPages === 0;
 }
-// function addPaginationNumber(number, container) {
-//     const button = document.createElement('button');
-//     button.className = `pagination-btn${number === currentExplanationsPage ? ' active' : ''}`;
-//     button.textContent = number;
-//     button.addEventListener('click', () => {
-//         currentExplanationsPage = number;
-//         displayExplanations();
-//     });
-//     container.appendChild(button);
-// }
 
-// function updateExplanationsPagination() {
-//     const totalPages = Math.ceil(explanations.length / explanationsPerPage);
-//     document.getElementById('explanations-showing').textContent = 
-//         explanations.length > 0 ? 
-//         `${(currentExplanationsPage - 1) * explanationsPerPage + 1}-${Math.min(currentExplanationsPage * explanationsPerPage, explanations.length)}` : 
-//         '0-0';
-//     document.getElementById('explanations-total').textContent = explanations.length;
-    
-//     // Generate pagination numbers
-//     const paginationNumbers = document.getElementById('explanations-pagination-numbers');
-//     paginationNumbers.innerHTML = '';
-    
-//     if (totalPages <= 7) {
-//         // Show all pages if 7 or fewer
-//         for (let i = 1; i <= totalPages; i++) {
-//             addPaginationNumber(i, paginationNumbers);
-//         }
-//     } else {
-//         // Complex pagination with ellipses
-//         if (currentExplanationsPage <= 4) {
-//             // Near start
-//             for (let i = 1; i <= 5; i++) {
-//                 addPaginationNumber(i, paginationNumbers);
-//             }
-//             addEllipsis(paginationNumbers);
-//             addPaginationNumber(totalPages, paginationNumbers);
-//         } else if (currentExplanationsPage >= totalPages - 3) {
-//             // Near end
-//             addPaginationNumber(1, paginationNumbers);
-//             addEllipsis(paginationNumbers);
-//             for (let i = totalPages - 4; i <= totalPages; i++) {
-//                 addPaginationNumber(i, paginationNumbers);
-//             }
-//         } else {
-//             // Middle
-//             addPaginationNumber(1, paginationNumbers);
-//             addEllipsis(paginationNumbers);
-//             for (let i = currentExplanationsPage - 1; i <= currentExplanationsPage + 1; i++) {
-//                 addPaginationNumber(i, paginationNumbers);
-//             }
-//             addEllipsis(paginationNumbers);
-//             addPaginationNumber(totalPages, paginationNumbers);
-//         }
-//     }
-    
-//     // Enable/disable prev/next buttons
-//     document.getElementById('explanations-prev-page').disabled = currentExplanationsPage === 1;
-//     document.getElementById('explanations-next-page').disabled = currentExplanationsPage === totalPages || totalPages === 0;
-// }
-// function attachExplanationEventListeners() {
-//     // View explanation buttons
-//     document.querySelectorAll('.view-explanation').forEach(btn => {
-//         btn.addEventListener('click', (e) => {
-//             const id = e.currentTarget.getAttribute('data-id');
-//             viewExplanation(id);
-//         });
-//     });
-    
-//     // Edit explanation buttons
-//     document.querySelectorAll('.edit-explanation').forEach(btn => {
-//         btn.addEventListener('click', (e) => {
-//             const id = e.currentTarget.getAttribute('data-id');
-//             editExplanation(id);
-//         });
-//     });
-    
-//     // Delete explanation buttons
-//     document.querySelectorAll('.delete-explanation').forEach(btn => {
-//         btn.addEventListener('click', (e) => {
-//             const id = e.currentTarget.getAttribute('data-id');
-//             deleteExplanation(id);
-//         });
-//     });
-    
-//     // Select all checkbox
-//     document.getElementById('select-all-explanations')?.addEventListener('change', (e) => {
-//         const isChecked = e.target.checked;
-//         document.querySelectorAll('.explanation-checkbox').forEach(checkbox => {
-//             checkbox.checked = isChecked;
-//         });
-//     });
-// }
 function addPaginationNumber(number, container) {
     const button = document.createElement('button');
     button.className = `pagination-btn${number === currentExplanationsPage ? ' active' : ''}`;
@@ -2332,21 +1756,7 @@ function attachExplanationActionListeners() {
 }
 
 // Function to view an explanation
-// async function viewExplanation(explanationId) {
-//     const explanations = await loadExplanations();
-//     const explanation = explanations.find(exp => exp.id === explanationId);
 
-//     if (explanation) {
-//         // Increment the view count
-//         await incrementExplanationViews(explanationId);
-
-//         // In a real app, you'd open a detailed view
-//         alert(`Viewing explanation: ${explanation.title}`);
-
-//         // After viewing, refresh the display to update view count
-//         displayExplanations();
-//     }
-// }
 async function viewExplanation(id) {
     const explanations = await loadExplanations();
     const explanation = explanations.find(e => e.id === id);
@@ -2362,45 +1772,7 @@ async function viewExplanation(id) {
     showNotification('View explanation functionality to be implemented', 'info');
 }
 // Function to edit an explanation
-// async function editExplanation(explanationId) {
-//     const explanations = await loadExplanations();
-//     const explanation = explanations.find(exp => exp.id === explanationId);
 
-//     if (explanation) {
-//         // Populate the modal with the explanation data
-//         document.getElementById('explanation-title').value = explanation.title;
-//         document.getElementById('related-law').value = explanation.relatedLawId;
-//         document.getElementById('explanation-category').value = explanation.category;
-//         document.getElementById('explanation-status').value = explanation.status;
-//         document.getElementById('explanation-summary').value = explanation.summary;
-//         document.getElementById('explanation-content').value = explanation.content;
-
-//         // Populate tags
-//         const tagsContainer = document.querySelector('.explanation-tags-container');
-//         tagsContainer.innerHTML = '';
-
-//         explanation.tags.forEach(tagText => {
-//             const tag = document.createElement('div');
-//             tag.className = 'tag';
-//             tag.innerHTML = `
-//                 ${tagText}
-//                 <span class="tag-close"><i class="fas fa-times"></i></span>
-//             `;
-
-//             tag.querySelector('.tag-close').addEventListener('click', function () {
-//                 tag.remove();
-//             });
-
-//             tagsContainer.appendChild(tag);
-//         });
-
-//         // Store the explanation ID for the save function
-//         saveNewExplanationButton.setAttribute('data-editing', explanationId);
-
-//         // Open the modal
-//         openAddExplanationModal();
-//     }
-// }
 async function editExplanation(id) {
     const explanations = await loadExplanations();
     const explanation = explanations.find(e => e.id === id);

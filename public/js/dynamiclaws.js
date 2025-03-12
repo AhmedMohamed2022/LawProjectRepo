@@ -4,6 +4,8 @@
 // <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 // And your Firebase config initialization
 
+
+
 // Assuming Firebase is initialized, get Firestore reference
 const db = firebase.firestore();
 
@@ -11,30 +13,7 @@ const db = firebase.firestore();
 const LAWS_STORAGE_KEY = 'legal_system_laws';
 const EXPLANATIONS_STORAGE_KEY = 'legal_system_explanations';
 
-// Load laws from Firestore (replaces original loadLaws function)
-// async function loadLaws() {
-//     try {
-//         const querySnapshot = await db.collection("laws").get();
-//         let laws = [];
-        
-//         querySnapshot.forEach((doc) => {
-//             const data = doc.data();
-            
-//             // Convert Firestore timestamp to JavaScript Date string
-//             if (data.datePublished && data.datePublished instanceof firebase.firestore.Timestamp) {
-//                 data.datePublished = data.datePublished.toDate().toISOString();
-//             }
-            
-//             laws.push({ id: doc.id, ...data });
-//         });
-        
-//         return laws;
-//     } catch (error) {
-//         console.error("Error fetching laws from Firestore:", error);
-//         // Fallback to local storage if Firestore fails
-//         return loadLocalLaws();
-//     }
-// }
+
 async function loadLaws() {
     try {
         const querySnapshot = await db.collection("laws").get();
@@ -68,28 +47,7 @@ function loadLocalLaws() {
     return storedLaws ? JSON.parse(storedLaws) : [];
 }
 
-// Get related explanations for a law from Firestore
-// async function getRelatedExplanations(lawId) {
-//     try {
-//         const querySnapshot = await db.collection("lawExplanations")
-//             .where("relatedLawId", "==", lawId)
-//             .get();
-            
-//         let explanations = [];
-        
-//         querySnapshot.forEach((doc) => {
-//             explanations.push({ id: doc.id, ...doc.data() });
-//         });
-        
-//         return explanations;
-//     } catch (error) {
-//         console.error("Error fetching explanations from Firestore:", error);
-//         // Fallback to local storage
-//         const storedExplanations = localStorage.getItem(EXPLANATIONS_STORAGE_KEY);
-//         const explanations = storedExplanations ? JSON.parse(storedExplanations) : [];
-//         return explanations.filter(exp => exp.relatedLawId === lawId);
-//     }
-// }
+
 async function getRelatedExplanations(lawId) {
     try {
         // Try with original ID
@@ -354,286 +312,7 @@ function formatDate(date) {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     return `${months[dateObj.getMonth()]} ${dateObj.getDate()}, ${dateObj.getFullYear()}`;
 }
-// Open law modal with Firestore data
-// async function openLawModal(lawId) {
-//     const lawModal = document.getElementById('lawModal');
-    
-//     // Reset and show the modal with loading state
-//     lawModal.querySelector('.law-full-title').textContent = "Loading...";
-//     lawModal.querySelector('.law-description').textContent = "";
-//     lawModal.querySelector('.law-sections').innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading law details...</div>';
-    
-//     // Show modal
-//     lawModal.classList.add('active');
-//     document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    
-//     try {
-//         // Try to get law from Firestore first
-//         const docRef = db.collection("laws").doc(lawId);
-//         const doc = await docRef.get();
-        
-//         let law;
-//         if (doc.exists) {
-//             // Get data from Firestore
-//             law = { id: doc.id, ...doc.data() };
-            
-//             // Update view count in Firestore
-//             await updateLawViews(lawId);
-            
-//             // Convert Firestore timestamp if needed
-//             if (law.datePublished instanceof firebase.firestore.Timestamp) {
-//                 law.datePublished = law.datePublished.toDate().toISOString();
-//             }
-//         } else {
-//             // Try fallback to local storage
-//             console.log("Law not found in Firestore, checking local storage");
-//             const laws = loadLocalLaws();
-//             law = laws.find(l => l.id === lawId);
-            
-//             if (!law) {
-//                 throw new Error("Law not found in Firestore or local storage");
-//             }
-            
-//             // Update view count in local storage
-//             const lawIndex = laws.findIndex(l => l.id === lawId);
-//             if (lawIndex !== -1) {
-//                 laws[lawIndex].views += 1;
-//                 localStorage.setItem(LAWS_STORAGE_KEY, JSON.stringify(laws));
-//             }
-//         }
 
-//         // Update modal content
-//         lawModal.querySelector('.law-category-tag').textContent = capitalizeFirstLetter(law.category);
-//         lawModal.querySelector('.law-full-title').textContent = law.title;
-//         lawModal.querySelector('.law-number').textContent = law.id;
-//         document.getElementById('modalLawDate').textContent = formatDate(law.datePublished);
-
-//         // Fill in metadata
-//         const metadataSection = lawModal.querySelector('.law-metadata');
-//         metadataSection.innerHTML = `
-//             <div class="metadata-item">
-//                 <span class="metadata-label">Effective since:</span>
-//                 <span class="metadata-value">${formatDate(law.datePublished)}</span>
-//             </div>
-//             <div class="metadata-item">
-//                 <span class="metadata-label">Status:</span>
-//                 <span class="metadata-value">${capitalizeFirstLetter(law.status)}</span>
-//             </div>
-//             <div class="metadata-item">
-//                 <span class="metadata-label">Tags:</span>
-//                 <span class="metadata-value">${law.tags ? law.tags.length : 0}</span>
-//             </div>
-//             <div class="metadata-item">
-//                 <span class="metadata-label">Views:</span>
-//                 <span class="metadata-value">${law.views}</span>
-//             </div>
-//         `;
-
-//         // Fill in description
-//         lawModal.querySelector('.law-description').textContent = law.description;
-
-//         // Display law content directly instead of just key sections
-//         const sectionsContainer = lawModal.querySelector('.law-sections');
-//         if (law.content) {
-//             // Format content to display properly
-//             const formattedContent = law.content.replace(/\n/g, '<br>');
-//             sectionsContainer.innerHTML = `
-//                 <h4>Law Content</h4>
-//                 <div class="law-content-text">${formattedContent}</div>
-//             `;
-//         } else {
-//             sectionsContainer.innerHTML = '<p>No detailed content available for this law.</p>';
-//         }
-
-//         // Show tags if available
-//         if (law.tags && law.tags.length > 0) {
-//             const tagsHtml = law.tags.map(tag => `<span class="law-tag">${tag}</span>`).join('');
-//             sectionsContainer.innerHTML += `
-//                 <div class="law-tags-section">
-//                     <h4>Tags</h4>
-//                     <div class="law-tags">${tagsHtml}</div>
-//                 </div>
-//             `;
-//         }
-
-//         // Add related explanations
-//         const relatedExplanations = await getRelatedExplanations(lawId);
-
-//         // Update the AI Analysis button link
-//         const aiAnalysisBtn = lawModal.querySelector('.law-modal-footer .btn-primary');
-//         if (relatedExplanations.length > 0) {
-//             // Set href with the first explanation ID
-//             aiAnalysisBtn.href = `dynamicExplanation.html?id=${relatedExplanations[0].id.replace("#", "")}`;
-//             aiAnalysisBtn.classList.remove('disabled');
-//         } else {
-//             aiAnalysisBtn.href = '#';
-//             aiAnalysisBtn.classList.add('disabled');
-//         }
-//     } catch (error) {
-//         console.error("Error opening law modal:", error);
-//         // Show error in modal
-//         lawModal.querySelector('.law-full-title').textContent = "Error";
-//         lawModal.querySelector('.law-sections').innerHTML = `
-//             <div class="error-message">
-//                 <i class="fas fa-exclamation-triangle"></i>
-//                 <h3>Could not load law details</h3>
-//                 <p>${error.message || "An unexpected error occurred."}</p>
-//             </div>
-//         `;
-//     }
-// }
-// async function openLawModal(lawId) {
-//     const lawModal = document.getElementById('lawModal');
-    
-//     // Reset and show the modal with loading state
-//     lawModal.querySelector('.law-full-title').textContent = "Loading...";
-//     lawModal.querySelector('.law-description').textContent = "";
-//     lawModal.querySelector('.law-sections').innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading law details...</div>';
-    
-//     console.log(`Attempting to open law with ID: ${lawId}`);
-    
-//     // Show modal
-//     lawModal.classList.add('active');
-//     document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    
-//     try {
-//         // Try to get law from Firestore first
-//         const docRef = db.collection("laws").doc(lawId);
-//         const doc = await docRef.get();
-        
-//         let law;
-//         if (doc.exists) {
-//             console.log(`Found law ${lawId} in Firestore`);
-//             // Get data from Firestore
-//             law = { id: doc.id, ...doc.data() };
-            
-//             // Update view count in Firestore
-//             await updateLawViews(lawId);
-            
-//             // Convert Firestore timestamp if needed
-//             if (law.datePublished instanceof firebase.firestore.Timestamp) {
-//                 law.datePublished = law.datePublished.toDate().toISOString();
-//             }
-//         } else {
-//             // Try fallback to local storage
-//             console.log(`Law not found in Firestore, checking local storage for ID: ${lawId}`);
-//             const laws = loadLocalLaws();
-//             console.log("Laws in local storage:", laws);
-//             law = laws.find(l => l.id === lawId);
-            
-//             if (!law) {
-//                 // Instead of throwing an error, create a placeholder law
-//                 console.log("Law not found in either location. Creating placeholder.");
-//                 law = {
-//                     id: lawId,
-//                     title: "Law Not Found",
-//                     category: "unknown",
-//                     description: "This law entry could not be found in the database. It may have been removed or there might be a connection issue.",
-//                     datePublished: new Date().toISOString(),
-//                     views: 0,
-//                     status: "unknown",
-//                     content: "No content available."
-//                 };
-//             } else {
-//                 // Update view count in local storage
-//                 const lawIndex = laws.findIndex(l => l.id === lawId);
-//                 if (lawIndex !== -1) {
-//                     laws[lawIndex].views += 1;
-//                     localStorage.setItem(LAWS_STORAGE_KEY, JSON.stringify(laws));
-//                 }
-//             }
-//         }
-
-//         // Update modal content
-//         lawModal.querySelector('.law-category-tag').textContent = capitalizeFirstLetter(law.category);
-//         lawModal.querySelector('.law-full-title').textContent = law.title;
-//         lawModal.querySelector('.law-number').textContent = law.id;
-//         document.getElementById('modalLawDate').textContent = formatDate(law.datePublished);
-
-//         // Fill in metadata
-//         const metadataSection = lawModal.querySelector('.law-metadata');
-//         metadataSection.innerHTML = `
-//             <div class="metadata-item">
-//                 <span class="metadata-label">Effective since:</span>
-//                 <span class="metadata-value">${formatDate(law.datePublished)}</span>
-//             </div>
-//             <div class="metadata-item">
-//                 <span class="metadata-label">Status:</span>
-//                 <span class="metadata-value">${capitalizeFirstLetter(law.status)}</span>
-//             </div>
-//             <div class="metadata-item">
-//                 <span class="metadata-label">Tags:</span>
-//                 <span class="metadata-value">${law.tags ? law.tags.length : 0}</span>
-//             </div>
-//             <div class="metadata-item">
-//                 <span class="metadata-label">Views:</span>
-//                 <span class="metadata-value">${law.views}</span>
-//             </div>
-//         `;
-
-//         // Fill in description
-//         lawModal.querySelector('.law-description').textContent = law.description;
-
-//         // Display law content directly instead of just key sections
-//         const sectionsContainer = lawModal.querySelector('.law-sections');
-//         if (law.content) {
-//             // Format content to display properly
-//             const formattedContent = law.content.replace(/\n/g, '<br>');
-//             sectionsContainer.innerHTML = `
-//                 <h4>Law Content</h4>
-//                 <div class="law-content-text">${formattedContent}</div>
-//             `;
-//         } else {
-//             sectionsContainer.innerHTML = '<p>No detailed content available for this law.</p>';
-//         }
-
-//         // Show tags if available
-//         if (law.tags && law.tags.length > 0) {
-//             const tagsHtml = law.tags.map(tag => `<span class="law-tag">${tag}</span>`).join('');
-//             sectionsContainer.innerHTML += `
-//                 <div class="law-tags-section">
-//                     <h4>Tags</h4>
-//                     <div class="law-tags">${tagsHtml}</div>
-//                 </div>
-//             `;
-//         }
-
-//         // Add related explanations
-//         const relatedExplanations = await getRelatedExplanations(lawId);
-
-//         // Update the AI Analysis button link
-//         const aiAnalysisBtn = lawModal.querySelector('.law-modal-footer .btn-primary');
-//         if (relatedExplanations.length > 0) {
-//             // Set href with the first explanation ID
-//             aiAnalysisBtn.href = `dynamicExplanation.html?id=${relatedExplanations[0].id.replace("#", "")}`;
-//             aiAnalysisBtn.classList.remove('disabled');
-//         } else {
-//             aiAnalysisBtn.href = '#';
-//             aiAnalysisBtn.classList.add('disabled');
-//             console.log(`No explanations found for law ${lawId}`);
-//         }
-//     } catch (error) {
-//         console.error("Error opening law modal:", error);
-//         // Show error in modal
-//         lawModal.querySelector('.law-full-title').textContent = "Error";
-//         lawModal.querySelector('.law-sections').innerHTML = `
-//             <div class="error-message">
-//                 <i class="fas fa-exclamation-triangle"></i>
-//                 <h3>Could not load law details</h3>
-//                 <p>${error.message || "An unexpected error occurred."}</p>
-//                 <button class="btn btn-outline reload-btn">Try Again</button>
-//             </div>
-//         `;
-        
-//         // Add reload button functionality
-//         const reloadBtn = lawModal.querySelector('.reload-btn');
-//         if (reloadBtn) {
-//             reloadBtn.addEventListener('click', () => {
-//                 openLawModal(lawId);
-//             });
-//         }
-//     }
-// }
 async function openLawModal(lawId) {
     const lawModal = document.getElementById('lawModal');
     
@@ -778,8 +457,8 @@ async function openLawModal(lawId) {
         const aiAnalysisBtn = lawModal.querySelector('.law-modal-footer .btn-primary');
         if (relatedExplanations.length > 0) {
             // Set href with the first explanation ID
-            const explanationId = relatedExplanations[0].id.replace("#", "");
-            aiAnalysisBtn.href = `dynamicExplanation.html?id=${explanationId}`;
+            const explanationId = relatedExplanations[0].id;
+            aiAnalysisBtn.href = `lawExplanation.html?id=${explanationId}`;
             aiAnalysisBtn.classList.remove('disabled');
         } else {
             aiAnalysisBtn.href = '#';
@@ -903,3 +582,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     })();
 });
+/////////////////////////////////////////////////////////////////////////////////////////////
+
